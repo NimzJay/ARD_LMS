@@ -88,7 +88,7 @@ public class login extends HttpServlet {
         		System.out.println("Client");
         		Sesh.setUsername(user);
         		System.out.println(Sesh.getUsername());
-        		request.getRequestDispatcher("clientUI.jsp").forward(request, response);
+        		request.getRequestDispatcher("member_index.jsp").forward(request, response);
            	}
         	else if(userValidate.equals("adminUI"))
         	{
