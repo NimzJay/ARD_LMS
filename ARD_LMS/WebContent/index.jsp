@@ -22,8 +22,8 @@
 			<p>Password:</p>
 			<input type="password" name="pass" id="" required><br>
 			<br>
-			<br> <input type="submit" value="Log in"> <a href="">Forgot
-				Password?</a>
+			<br> <input type="submit" value="Log in">
+			<p>Contact Librarian to Register.</p>
 		</form>
 	</div>
 </body>

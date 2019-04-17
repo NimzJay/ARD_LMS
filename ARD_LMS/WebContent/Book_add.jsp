@@ -31,12 +31,13 @@
 				<table width="100%">
 					<tr>
 						<td>
-							<h1>Add Books<h1>
+							<h1>
+								Add Books
+								<h1>
 						</td>
-						<td><a class="main_button" href="Book_view.jsp">View All Books</a> 
-							<a class="main_button" href="Book_update.jsp">Edit Books</a> 
-							<a class="main_button" href="Book_add.jsp">Add Books</a>
-						</td>
+						<td><a class="main_button" href="Book_view.jsp">View All
+								Books</a> <a class="main_button" href="Book_update.jsp">Edit
+								Books</a> <a class="main_button" href="Book_add.jsp">Add Books</a></td>
 					</tr>
 				</table>
 			</div>
