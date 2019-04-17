@@ -47,7 +47,7 @@
     <a href="" class="footer"> ABOUT US </a>
     <a href="" class="footer"> SEARCH </a>
     <a href="" class="footer"> MY LIST </a>
-    <a href="" class="footer"> MY LIST </a>
+    <a href="" class="footer"> LOGOUT </a>
     
     <br><br>
     <hr color="dimgrey" width="100%">
