@@ -56,7 +56,7 @@
 						</tr>
 						<tr>
 							<td>Message:</td>
-							<td><textarea name="message" cols="60" rows="6"></textarea></td>
+							<td><textarea name="message" cols="60" rows="7"></textarea></td>
 						</tr>
 						<tr>
 							<td><input type="reset" value="Reset" name="reset"></td>
