@@ -28,6 +28,7 @@
 				<li><a href="Book_search.jsp">Book</a></li>
 				<li><a href="User.jsp">User</a></li>
 				<li><a href="Issue.jsp">Issue history</a></li>
+				<li><a href="Emailing.jsp">Emailing</a></li>
 			</ul>
 		</div>
 		<div class="content">
