@@ -10,12 +10,12 @@ body{
 img.mySlides{
     position: absolute;
     width: 100%;
-    height: 400px;
+    height: 500px;
 }
 div.header {
     position: relative;
     width: 100%;
-    height: 400px;
+    height: 500px;
     z-index: 1;
 }
 div.slideshow {
@@ -24,54 +24,84 @@ div.slideshow {
 }
 a.right {
     float: right;
-    background-color: white;
-    border-bottom: 2px solid white;
-    color: white;
+    color: #c0c0c0;
     font-size: medium;
-    padding: 2.5% 7%;
+    width: 20%;
+    padding-top: 1.6%;
+    padding-bottom: 1.6%;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     letter-spacing: 4px;
-    background: rgba(155, 155, 155, 0.5);
+    background: #484848;
 }
 a.right:hover{
+	color: black;
     background: rgba(231, 231, 231, 0.5);
 }
-div.abt {
-    float: left;
-    width: 46.25%;
-    height:auto;
-    margin-outside: 0px;
-    border: 2px solid dimgrey;
-    padding: 20px;
+#heading {
+	letter-spacing: 4px;
+	text-align: center;	
+	font-size: xx-large; 
+	margin-top: -20px 
 }
-a.abt {
-    background-color: white;
-    border-right: 1px solid white;
-    border-left: 1px solid white;
-    color: white;
-    padding: 15px 19px;
+#content{
+	text-align: center;	 
+	color: gray;
+}
+
+table.container{
+	margin-bottom: 90px;
+	margin-left: 325px;
+	margin-right: 325px;
+}
+table.container th{
+	letter-spacing: 2px;
+	text-align: center;	
+	font-size: x-large; 
+	margin-top: -20px;
+	padding: 30px;
+	padding-bottom: -10px;
+}
+table.container td{
+	text-align: center;	 
+	color: gray;
+	margin-top: -20px;
+	padding: 20px;
+	padding-top: -20px;
+}
+div.abt{
+	background-color: #f8f8f8;
+}
+div.nav{
+	width: 100%;
+	height: 20px;
+	padding-left: 50px;
+	padding-right: 50px;
+	padding-top: 1.6%;
+    padding-bottom: 1.6%;
+    text-align: center;
+    background: #f1f1f1;
+}
+div.nav a{
+	float: center;
+    color: #808080;
+    font-size: medium;
+    width: 20%;
+    padding-top: 1.6%;
+    padding-bottom: 1.6%;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     letter-spacing: 4px;
-    background: rgba(25,25,25,0.5);
+    background: #f1f1f1;
 }
-a.abt:hover {
-    background: rgba(100, 100, 100, 0.5);
-    color: black;
-}
-div.abt2 {
-    float: left;
-    width: 46.25%;
-    height:auto;
-    margin-outside: 0px;
-    border: 2px solid dimgrey;
-    padding: 20px;
+div.nav a:hover{
+	color: black;
+    background: rgba(231, 231, 231, 0.5);
 }
 footer {
     width: 100%;
+    float: bottom;
     background-color: #1d1d1d;
     color: gray;
     padding: 20px;
@@ -87,9 +117,8 @@ p.footer {
 }
 a.footer {
     float: left;
-    width:10%;
+    width:17%;
     color: gray;
-
     padding: 1% 2%;
     text-align: center;
     text-decoration: none;
@@ -102,161 +131,19 @@ a.footer:hover {
     background: rgba(100, 100, 100, 0.5);
     color: white;
 }
-table.logout {
-	border-bottom: 1px solid dimgrey;
-}
-form.logout input[type=submit] {
-	display: block;
-    margin: 0 auto;
-    padding: 10px;
+div.logout input[type=submit]{
+    float: right;
+    width:15%;
+    border: none;
     background-color: #1d1d1d;
     color: gray;
-    border: none;
-}
-form.logout input[type=submit]:hover {
-    background: rgba(83, 83, 83, 0.5);
-}
-div.content {
-    text-align: center;
-    border: 2px;
-    width: 100%;
-    font-family: "Calibri";
-}
-table.form {
-    border-bottom: 1px solid dimgrey;
-    border-spacing: 25px;
-}
-table.form td{
-    font-size: large;
-}
-form.register input[type=text],input[type=password],input[type=date] {
-    width: 100%;
-    padding: 10px;
-}
-form.register textarea.address {
-    width: 100%;
-    padding: 5px;
-    margin-top:3px;
-}
-form.register input[type=submit], input[type=reset] {
-    display: block;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: grey;
-    color: white;
-    border: none;
-    border-radius: 3px;
-}
-form.register input[type=submit]:hover,input[type=reset]:hover {
-    background: rgba(83, 83, 83, 0.5);
-}
-table.tours td{
-    border: 2px solid lightgray;
-    border-collapse: collapse;
-    padding: 1px;
-    text-align: center;
-}
-a.reg {
-    float: right;
+    padding: 1% 2%;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    margin: 0 auto;
-    padding: 18px;
-    background-color: grey;
-    color: white;
-    border: none;
-    border-radius: 3px;
-}
-button.btn {
-	float: right;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin: 0 auto;
-    padding: 18px;
-    background-color: grey;
-    color: white;
-    border: none;
-    border-radius: 3px;
-}
-form.login input[type=submit] {
-    display: block;
-    margin: 0 auto;
-    padding: 23px;
-    background-color: grey;
-    color: white;
-    border: none;
-    border-radius: 3px;
-}
-a.reg:hover {
-    background: rgba(100, 100, 100, 0.5);
-    color: black;
-}
-form.login input[type=submit]:hover {
-    background: rgba(100, 100, 100, 0.5);
-    color: black;
-}
-table.login {
-    border-bottom: 1px solid dimgrey;
-    border-spacing: 25px;
-}
-table.login td{
-    font-size: large;
-}
-form.login input[type=text],input[type=password] {
-    width: 100%;
-    padding: 10px;
-}
-form.payment input[type=text]{
-    width: 80%;
-    padding: 10px;
-}
-select{
-    width: 88%;
-    padding: 10px;
-}
-form.payment input[type=submit]{
-    float: left;
-    display: block;
-    margin: 0 auto;
-    padding: 20px 40px;
-    background-color: grey;
-    color: white;
-    border: 2px solid white;
-    border-radius: 3px;
-}
-form.payment input[type=reset] {
-    float: left;
-    padding: 20px 40px;
-    background-color: grey;
-    color: white;
-    border: 2px solid white;
-    border-radius: 3px;
-}
-form.payment input[type=submit]:hover {
-    background: rgba(83, 83, 83, 0.5);
 }
 
-form.payment input[type=reset]:hover{
-    background: rgba(83, 83, 83, 0.5);
-}
-a.payment {
-    float: right;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin: 0 auto;
-    width: 100%;
-    padding-top: 140px;
-    padding-bottom: 140px;
-    background-color: dimgrey;
+div.logout input[type=submit]:hover {
+    background: rgba(100, 100, 100, 0.5);
     color: white;
-    border: none;
-    font-size: large;
-    letter-spacing: 4px;
-}
-a.payment:hover {
-    background: rgba(204, 204, 204, 0.5);
-    color: black;
 }
