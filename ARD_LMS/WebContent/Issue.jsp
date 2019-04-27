@@ -5,6 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Issue History | ARD Library</title>
+<link rel="icon" type="image/png" href="pix/favicon.png">
 <link rel="stylesheet" type="text/css" href="Styles/admin.css">
 <link rel="stylesheet" type="text/css" href="Styles/user.css">
 <meta name="viewport"

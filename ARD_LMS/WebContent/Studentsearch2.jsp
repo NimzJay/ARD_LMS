@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
 <title>Search Member | ARD Library</title>
-<link rel="stylesheet" type="text/css" href="Styles/user.css">
+<link rel="icon" type="image/png" href="pix/favicon.png">
 <link rel="stylesheet" type="text/css" href="Styles/admin.css">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="Styles/user.css">
+<meta name="viewport"
+	content="width=device-width, initial-scale: 1.0, user-scalable=0" />
 <style>
 * {
 	box-sizing: border-box;
@@ -72,66 +73,82 @@ footer {
 </style>
 </head>
 <body>
-
-	<h2>Student Search</h2>
-
-	<header>
-		<h2>Search Category</h2>
-	</header>
-
-	<section>
-		<nav>
-			<ul>
-				<button type="submit" class="searchButton">
-					<p>STUDENT:</p>
-
-					<input type="text" name="search" placeholder=" Student Search">
-					<br>
-
-					<button type="button"
-						onclick="document.getElementById('demo').innerHTML = Date()">
-						Search student.</button>
+	<div class="header">
+		<div class="logo">
+			<a href="admin_index.jsp"> &nbsp &nbsp ARD &nbsp<span>Library</span></a>
+		</div>
+	</div>
+	<div id="container">
+		<div class="sidebar">
+			<ul id="nav">
+				<li><a class="selected" href="admin_index.jsp">Dashboard</a></li>
+				<li><a href="Book_search.jsp">Book</a></li>
+				<li><a href="User.jsp">User</a></li>
+				<li><a href="Issue.jsp">Issue history</a></li>
 			</ul>
+		</div>
+		<div class="content">
+			<h2>Student Search</h2>
 
-			<div class="wrap"></div>
-			<i class="fa fa-search"></i>
-			</button>
-			</div>
-			</div>
-		</nav>
+			<header>
+				<h2>Search Category</h2>
+			</header>
+
+			<section>
+				<nav>
+					<ul>
+						<button type="submit" class="searchButton">
+							<p>STUDENT:</p>
+
+							<input type="text" name="search" placeholder=" Student Search">
+							<br>
+
+							<button type="button"
+								onclick="document.getElementById('demo').innerHTML = Date()">
+								Search student.</button>
+					</ul>
+
+					<div class="wrap"></div>
+					<i class="fa fa-search"></i>
+				</nav>
 
 
-		<article>
-			<h1>
+				<article>
 
-				<a class="main_button" href="">View Member</a> <a
-					class="main_button" href="">Search Member</a> <a
-					class="main_button" href="AddStudent.jsp">Add Member</a> <br>
-				<br>
-				<div class="box">
+					<a class="main_button" href="">View Member</a> <a
+						class="main_button" href="">Search Member</a> <a
+						class="main_button" href="AddStudent.jsp">Add Member</a> <br>
 					<br>
-					<table width="100%">
-						<tr>
-							<td>
-								<div class="mini">Total Books</div>
-							</td>
-							<td>
-								<div class="mini">Total issues today</div>
-							</td>
-							<td>
-								<div class="mini">Issues Books out</div>
-							</td>
-							<td>
-								<div class="mini">Total students</div>
-							</td>
-						</tr>
-					</table>
-				</div>
-
-
-				</div>
+					<div class="box">
+						<br>
+						<table width="100%">
+							<tr>
+								<td>
+									<div class="mini">Total Books</div>
+								</td>
+								<td>
+									<div class="mini">Total issues today</div>
+								</td>
+								<td>
+									<div class="mini">Issues Books out</div>
+								</td>
+								<td>
+									<div class="mini">Total students</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+		</div>
 		</article>
-	</section>
+		</section>
+	</div>
+	</div>
+
+
+
+
+
+
 
 </body>
 </html>
