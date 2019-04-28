@@ -20,7 +20,7 @@
 	<div id="container">
 		<div class="sidebar">
 			<ul id="nav">
-				<li><a href="admin_index.jsp">Dashboard</a></li>
+				<li><a href="admin_index.jsp">Dashbohfhard</a></li>
 				<li><a href="Book_search.jsp">Book</a></li>
 				<li><a href="User.jsp">User</a></li>
 				<li><a class="selected" href="Issue.jsp">Issue history</a></li>
