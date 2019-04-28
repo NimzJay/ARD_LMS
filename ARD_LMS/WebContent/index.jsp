@@ -5,6 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Home | ARD Library</title>
+<link rel="icon" type="image/png" href="pix/favicon.png">
 <link rel="stylesheet" type="text/css" href="Styles/style.css">
 <meta name="viewport"
 	content="width=device-width, initial-scale: 1.0, user-scalable=0" />
@@ -22,8 +23,8 @@
 			<p>Password:</p>
 			<input type="password" name="pass" id="" required><br>
 			<br>
-			<br> <input type="submit" value="Log in"> <a href="">Forgot
-				Password?</a>
+			<br> <input type="submit" value="Log in">
+			<p>Contact Librarian to Register.</p>
 		</form>
 	</div>
 </body>

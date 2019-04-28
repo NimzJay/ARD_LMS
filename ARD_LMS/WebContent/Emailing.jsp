@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Search Books | ARD Library</title>
-<link rel="icon" type="image/png" href="pix/favicon.png">
+<title>Emailing | ARD Library</title>
 <link rel="stylesheet" type="text/css" href="Styles/admin.css">
 <link rel="stylesheet" type="text/css" href="Styles/user.css">
 <meta name="viewport"
@@ -23,7 +22,8 @@
 				<li><a href="admin_index.jsp">Dashboard</a></li>
 				<li><a class="selected" href="Book_search.jsp">Book</a></li>
 				<li><a href="User.jsp">User</a></li>
-				<li><a href="issue_history.jsp">Issue history</a></li>
+				<li><a href="Issue.jsp">Issue history</a></li>
+				<li><a href="Emailing.jsp">Emailing</a></li>
 			</ul>
 		</div>
 		<div class="content">
@@ -32,30 +32,40 @@
 				<table width="100%">
 					<tr>
 						<td>
-							<h1>Delete Books<h1>
+							<h1>Notify Clients<h1>
 						</td>
-						<td><a class="main_button" href="Book_view.jsp">View All Books</a> 
-							<a class="main_button" href="Book_update.jsp">Edit Books</a> 
-							<a class="main_button" href="Book_add.jsp">Add Books</a>
+						<td>
+						<a class="main_button" href="............."><b>Add Recently Added Books</b></a> 
 						</td>
 					</tr>
 				</table>
 			</div>
-			
 			<div class="forms">
-				<form class="bookAdd" method="POST" name="admin" action="BookDelete">
-					<table class="tab" style="border-color: black; color: black"
+				<p align="Left" style="letter-spacing: 4px">Email Form</p>
+				<hr>
+				<form class="bookAdd" name="bookAdd" action="BookAdd" method="POST">
+					<table class="tab" style="border-color: white; color: dimgray"
 						align="center">
 						<tr>
-							<td>Book Title:</td>
+							<td>To:</td>
 							<td><input id="Text1" type="text" name="btitle" required /></td>
-							<td><input type="submit" value="Delete" name="btnAdd"></td>
+						</tr>
+						<tr>
+							<td>Subject:</td>
+							<td><input id="Text1" type="text" name="isbn" required /></td>
+						</tr>
+						<tr>
+							<td>Message:</td>
+							<td><textarea name="message" cols="60" rows="7"></textarea></td>
+						</tr>
+						<tr>
+							<td><input type="reset" value="Reset" name="reset"></td>
+							<td><input type="submit" value="Submit">
+							</td>
 						</tr>
 					</table>
 				</form>
 			</div>
-			
-			
 		</div>
 	</div>
 </body>

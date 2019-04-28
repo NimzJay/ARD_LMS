@@ -5,6 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Books | ARD Library</title>
+<link rel="icon" type="image/png" href="pix/favicon.png">
 <link rel="stylesheet" type="text/css" href="Styles/admin.css">
 <link rel="stylesheet" type="text/css" href="Styles/user.css">
 <meta name="viewport"
@@ -31,12 +32,13 @@
 				<table width="100%">
 					<tr>
 						<td>
-							<h1>Add Books<h1>
+							<h1>
+								Add Books
+								<h1>
 						</td>
-						<td><a class="main_button" href="Book_view.jsp">View All Books</a> 
-							<a class="main_button" href="Book_update.jsp">Edit Books</a> 
-							<a class="main_button" href="Book_add.jsp">Add Books</a>
-						</td>
+						<td><a class="main_button" href="Book_view.jsp">View All
+								Books</a> <a class="main_button" href="Book_update.jsp">Edit
+								Books</a> <a class="main_button" href="Book_add.jsp">Add Books</a></td>
 					</tr>
 				</table>
 			</div>

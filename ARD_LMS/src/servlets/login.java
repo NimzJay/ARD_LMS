@@ -14,8 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.Sesh;
 
-//import login.loginDao;
-
 /**
  * Servlet implementation class login
  */
@@ -100,7 +98,7 @@ public class login extends HttpServlet {
            		request.getRequestDispatcher("index.jsp").forward(request, response);
         	}  
         }catch (Exception e) {
-        	
+        	e.printStackTrace();
         }
 	}
 

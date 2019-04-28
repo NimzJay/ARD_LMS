@@ -23,6 +23,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="icon" type="image/png" href="pix/favicon.png">
 <link rel="stylesheet" type="text/css" href="Styles/admin.css">
 <link rel="stylesheet" type="text/css" href="Styles/user.css">
 <title>View Books | ARD Library</title>
