@@ -51,7 +51,7 @@
 					<tr>
 						<td>
 							<h1>
-								Update Books
+								return Books
 							<h1>
 						</td>
 						<td><a class="main_button" href="Book_view.jsp">View All Books</a> 
@@ -65,81 +65,61 @@
 					<table class="tab" style="border-color: black; color: black"
 						align="center">
 						<tr>
-							<td>Book Title:</td>
-							<td><input id="Text1" type="text" name="btitle" required /></td>
-							<td><input type="submit" value="Search" name="btnAdd"></td>
-							<%
-								String bti = request.getParameter("btitle");
-							%>
+							<%String b=request.getParameter("ID"); %>
 						</tr>
 					</table>
 				</form>
 			</div>
 			<div class="forms">
 				<%
-					System.out.println("Book: " + bti);
+					System.out.println("Book: " + b);
 					try {
-						String sql = ("SELECT * FROM books WHERE bTitle = '"+bti+"'");
+						
+						
+						
+						String sql = ("SELECT * FROM lending WHERE lnedID = '"+b+"'");
 						Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ard_lms", "root", "");
 						PreparedStatement st = con.prepareStatement(sql);
 						ResultSet rs = st.executeQuery(sql);
 						while (rs.next()) {
 				%>
-				<form class="bookAdd" action="BookUpdate" method="POST"
-					name="admin">
+				<form class="bookAdd" action="returnBook" method="POST"
+					name="return">
 					<table class="tab" style="border-color: black; color: black"
 						align="center">
-						<tr>
+							<tr>
+							<td>lend ID:</td>
+							<td><input id="Text1" type="text" name="id"
+								value="<%=rs.getString("lnedID")%>"required /></td>
+						</tr>
+					    	<tr>
 							<td>Book Title:</td>
-							<td><input id="Text1" type="text" name="btitle"
-								value="<%=rs.getString("bTitle")%>" required /></td>
-						</tr>
-						<tr>
-							<td>ISBN:</td>
-							<td><input id="Text1" type="text" name="isbn"
-								value="<%=rs.getString("isbn")%>" required /></td>
-						</tr>
-						<tr>
-							<td>Author:</td>
-							<td><input id="Text1" type="text" name="author"
-								value="<%=rs.getString("author")%>" required /></td>
-						</tr>
-						<tr>
-							<td>category:</td>
-							<td><input id="pass" type="text" name="category"
-								value="<%=rs.getString("category")%>" required /></td>
-						</tr>
-						<tr>
-							<td>Publisher:</td>
-							<td><input id="pass" type="text" name="publisher"
-								value="<%=rs.getString("publisher")%>" required /></td>
-						</tr>
-						<tr>
-							<td>Edition:</td>
-							<td><input type="text" name="edition" 
-							value="<%=rs.getString("edition")%>" required /></td>
-
-						</tr>
-						<tr>
-							<td>Language:</td>
-							<td><input type="text" name="lang" 
-							value="<%=rs.getString("language")%>" required></td>
+							<td><input id="Text1" type="text" name="btitl"
+								value="<%=rs.getString("bookTitele")%>"required /></td>
 						</tr>
 						<tr>
 							<td>Copies:</td>
 							<td><input type="text" name="copies" 
-							value="<%=rs.getInt("copies")%>" required></td>
+							value="<%=rs.getInt("lendingQty")%>" required></td>
 						</tr>
 						<tr>
-							<td>Added Date:</td>
-							<td><input id="Text1" type="date" name="addedon"
-								value="<%=rs.getString("addedDate")%>" required /></td>
+							<td>qty:</td>
+							<td><input id="Text1" type="text" value = "<%=rs.getString("lendingQty")%>" name="qty" required /></td>
 						</tr>
-						<tr></tr>
+						<tr>
+							<td>nic:</td>
+							<td><input id="Text1" type="text" name="nic"
+								value="<%=rs.getString("Nic")%>" required /></td>
+						</tr>
+						<tr>
+							<td>name:</td>
+							<td><input id="Text1" type="text" name="username"
+								value="<%=rs.getString("userName")%>"required /></td>
+						</tr>
 
 						<tr>
 							<td></td>
-							<td><input type="submit" value="Update" name="insert" /></td>
+							<td><input type="submit" value="return" name="return" /></td>
 
 						</tr>
 

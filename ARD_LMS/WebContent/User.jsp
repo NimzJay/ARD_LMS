@@ -22,7 +22,7 @@
 				<li><a href="admin_index.jsp">Dashboard</a></li>
 				<li><a href="Book_search.jsp">Book</a></li>
 				<li><a class="selected" href="User.jsp">User</a></li>
-				<li><a href="Issue.jsp">Issue history</a></li>
+				<li><a href="Issue_history.jsp">Issue history</a></li>
 			</ul>
 		</div>
 		<div class="content">

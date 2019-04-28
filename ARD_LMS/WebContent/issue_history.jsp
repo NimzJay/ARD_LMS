@@ -6,7 +6,7 @@
 <%@page import="java.sql.DriverManager"%>
 
 <%
-	//String btitle = request.getParameter("bTitle");
+	String btitle = request.getParameter("bTitle");
 	String driverName = "com.mysql.jdbc.Driver";
 
 	try {
@@ -50,7 +50,7 @@
 					<tr>
 						<td>
 							<h1>
-								View all Books
+								issue history
 								<h1>
 						</td>
 						<td><a class="main_button" href="Book_view.jsp">View All
@@ -66,17 +66,13 @@
 					</tr>
 
 					<tr bgcolor="lightgray">
-						<td><b>Book ID</b></td>
-						<td><b>Book Title</b></td>
-						<td><b>ISBN</b></td>
-						<td><b>Author</b></td>
-						<td><b>Category</b></td>
-						<td><b>Publisher</b></td>
-						<td><b>Edition</b></td>
-						<td><b>Language</b></td>
+						<td><b>issue ID</b></td>
+						<td><b>nic</b></td>
+						<td><b>book titele</b></td>
+						<td><b>user name</b></td>						
 						<td><b>Copies</b></td>
-						<td><b>addedDate</b></td>
-						<td><b></b></td>
+						<td><b>lendingQty</b></td>						
+						<td><b>status</b></td>
 						<td><b></b></td>
 						<td><b></b></td>
 
@@ -85,27 +81,23 @@
 						try {
 							con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ard_lms", "root", "");
 							st = con.createStatement();
-							String sql = ("SELECT * FROM books ");
+							String sql = ("SELECT * FROM lending ");
 							rs = st.executeQuery(sql);
 							while (rs.next()) {
 								//String bt = rs.getString("bTitle");
 								//Sesh.setbTitle(bt);
 					%>
 					<tr>
-						<td><%=rs.getString("bid")%></td>
-						<td><%=rs.getString("bTitle")%></td>
-						<td><%=rs.getString("isbn")%></td>
-						<td><%=rs.getString("author")%></td>
-						<td><%=rs.getString("category")%></td>
-						<td><%=rs.getString("publisher")%></td>
-						<td><%=rs.getString("edition")%></td>
-						<td><%=rs.getString("language")%></td>
-						<td><%=rs.getInt("copies")%></td>
-						<td><%=rs.getString("addedDate")%></td>
-						<td><a class="sub_button" href="Book_update.jsp">Update</a></td>
-						<td><a class="sub_button" href="Book_delete.jsp">Delete</a></td>
-						<% int id = Integer.parseInt(rs.getString("bid")); %>
-						<td><a class="sub_button" href=<%="issuBookjsp.jsp?BookID="+id+""%>>issue</a></td>
+						<td><%=rs.getString("lnedID")%></td>
+						<td><%=rs.getString("Nic")%></td>
+						<td><%=rs.getString("bookTitele")%></td>
+						<td><%=rs.getString("userName")%></td>
+						<td><%=rs.getString("copies")%></td>
+						<td><%=rs.getString("lendingQty")%></td>
+						<td><%=rs.getString("status")%></td>
+						<% int id = Integer.parseInt(rs.getString("lnedID")); %>						
+						<td><a class="sub_button" href="Book_update.jsp">Update</a></td>						
+			            <td><a class="sub_button" href=<%="return_book.jsp?ID="+id+""%>>return</a></td>
 					</tr>
 					<%
 						}
