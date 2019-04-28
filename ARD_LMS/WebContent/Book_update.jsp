@@ -42,7 +42,8 @@
 				<li><a href="admin_index.jsp">Dashboard</a></li>
 				<li><a class="selected" href="Book_search.jsp">Book</a></li>
 				<li><a href="User.jsp">User</a></li>
-				<li><a href="issuehistory.jsp">Issue history</a></li>
+				<li><a href="issue_history.jsp">Issue history</a></li>
+				<li><a href="Emailing.jsp">Email</a></li>
 			</ul>
 		</div>
 		<div class="content">
@@ -61,26 +62,13 @@
 					</tr>
 				</table>
 			</div>
-			<div class="forms">
-				<form class="bookAdd" method="POST" name="admin">
-					<table class="tab" style="border-color: black; color: black"
-						align="center">
-						<tr>
-							<td>Book Title:</td>
-							<td><input id="Text1" type="text" name="btitle" required /></td>
-							<td><input type="submit" value="Search" name="btnAdd"></td>
-							<%
-								String bti = request.getParameter("btitle");
-							%>
-						</tr>
-					</table>
-				</form>
-			</div>
+			
 			<div class="forms">
 				<%
-					System.out.println("Book: " + bti);
+					String b=request.getParameter("BookID");
+					System.out.println("BookID: " + b);
 					try {
-						String sql = ("SELECT * FROM books WHERE bTitle = '"+bti+"'");
+						String sql = ("SELECT * FROM books WHERE bid = '"+b+"'");
 						Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ard_lms", "root", "");
 						PreparedStatement st = con.prepareStatement(sql);
 						ResultSet rs = st.executeQuery(sql);
