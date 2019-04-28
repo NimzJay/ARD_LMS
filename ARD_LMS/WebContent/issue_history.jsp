@@ -30,7 +30,7 @@
 <body>
 	<div class="header">
 		<div class="logo">
-			<a href="admin_index.jsp"> &nbsp &nbsp ARD &nbsp<span>Library</span></a>
+			<a href="admin_index.jsp"> &nbss &nbsp ARD &nbsp<span>Library</span></a>
 		</div>
 	</div>
 	<div id="container">
