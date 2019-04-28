@@ -20,6 +20,11 @@
 		<div class="logo">
 			<a href="admin_index.jsp"> &nbsp &nbsp ARD &nbsp<span>Library</span></a>
 		</div>
+		<div class="logout" align="right">
+			<form class="logout" name="logout" action="logout" method="POST">
+				<input type="submit" value="LOGOUT" name="logout">
+			</form>
+		</div>
 	</div>
 	<div id="container">
 		<div class="sidebar">

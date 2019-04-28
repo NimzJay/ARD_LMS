@@ -28,10 +28,14 @@ div.header{
 	float: top;
 	padding: 5px;
 }
+div.logout{
+	float: right;
+}
 
 div.logout input[type=submit]{
     display: block;
-    padding: 10px;
+    padding: 13px;
+    margin: 10px;
     background-color: #290053;
     color: white;
     border: none;	
