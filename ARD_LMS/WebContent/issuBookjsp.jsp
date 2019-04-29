@@ -147,7 +147,14 @@
     }
 }
 	 </script>
-
+       <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+            $(function () {
+                $("#datepicker").datepicker();
+            });
+        </script>
 				
           
 				<form class="bookAdd" action="issu_book" onsubmit="return checkqty(this);" method="POST"
@@ -178,6 +185,11 @@
 							<td>name:</td>
 							<td><input id="Text1" type="text" name="username"
 								value="<%=name%>" required /></td>
+						</tr>
+							<tr>
+							<td>return date:</td>
+							<td><input id="datepicker" type="text" name="date"
+								 required /></td>
 						</tr>
  				     <tr></tr>
 						<tr>

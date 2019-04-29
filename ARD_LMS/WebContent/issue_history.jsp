@@ -80,6 +80,7 @@
 						<td><b>Copies</b></td>
 						<td><b>lendingQty</b></td>						
 						<td><b>status</b></td>
+					    <td><b>return date</b></td>
 						<td><b></b></td>
 						<td><b></b></td>
 
@@ -102,9 +103,11 @@
 						<td><%=rs.getString("copies")%></td>
 						<td><%=rs.getString("lendingQty")%></td>
 						<td><%=rs.getString("status")%></td>
+						<td><%=rs.getString("rdate")%></td>
 						<% int id = Integer.parseInt(rs.getString("lnedID")); %>						
 						<td><a class="sub_button" href="Book_update.jsp">Update</a></td>						
 			            <td><a class="sub_button" href=<%="return_book.jsp?ID="+id+""%>>return</a></td>
+			           
 					</tr>
 					<%
 						}

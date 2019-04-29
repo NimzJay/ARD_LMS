@@ -42,16 +42,17 @@ public class returnBook extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		try {
+			String bqty = null;
 			String bt = request.getParameter("btitl");
 			String sql2 = ("SELECT copies FROM books WHERE bTitle = '"+bt+"'");
 			Connection con2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/ard_lms", "root", "");
 			PreparedStatement st2 = con2.prepareStatement(sql2);
 			ResultSet rs2 = st2.executeQuery(sql2);
 			while (rs2.next()) {
-				String bqty = rs2.getString("copies");
+		         bqty = rs2.getString("copies");
 			}
 		
-			String bqty = request.getParameter("copies");
+			//String bqty = request.getParameter("copies");
 			String lid = request.getParameter("id");
 			String copyqty = request.getParameter("qty");
 			

@@ -7,6 +7,14 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.DriverManager"%>
+<%@page import="java.text.SimpleDateFormat" %>
+<%@page import ="java.util.Date"%>
+<%@page import ="java.time.LocalDateTime"%>
+<%@page import ="java.time.format.DateTimeFormatter"%>
+
+
+
+
 
 <%
 	String bid = request.getParameter("bTitle");
@@ -77,17 +85,72 @@
 				</form>
 			</div>
 			<div class="forms">
-				<%
-					System.out.println("Book: " + b);
+				<%     
+				
+				LocalDateTime dateTime = LocalDateTime.now(); 
+				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+				System.out.println(dateTime.format(formatter));
+				
+				String dateStart = dateTime.format(formatter);
+				 String dateStop =null;
+				try {
+					
+					
+					String sql2 = ("SELECT rdate FROM lending WHERE lnedID = '"+b+"'");
+					Connection con2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/ard_lms", "root", "");
+					PreparedStatement st2 = con2.prepareStatement(sql2);
+					ResultSet rs2 = st2.executeQuery(sql2);
+					while (rs2.next()) {
+					  dateStop = rs2.getString("rdate");
+					}
+				} catch (Exception ex) {
+					System.out.println("Error: " + ex);
+					ex.printStackTrace();
+				}
+										
+				//HH converts hour in 24 hours format (0-23), day calculation
+				SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+				 long diffDays = 0;
+				 long finecal = 0;
+				Date d1 = null;
+				Date d2 = null;
+				 
+				d1 = format.parse(dateStart);
+				d2 = format.parse(dateStop);
+				
+				if(d2.compareTo(d1) < 0){
+					//in milliseconds
+					long diff = d1.getTime() - d2.getTime();
+
+					long diffSeconds = diff / 1000 % 60;
+					long diffMinutes = diff / (60 * 1000) % 60;
+					long diffHours = diff / (60 * 60 * 1000) % 24;
+				    diffDays = diff / (24 * 60 * 60 * 1000);
+                    
+				     finecal = diffDays *10;
+					System.out.print(diffDays + " days, ");
+					System.out.print(diffHours + " hours, ");
+					System.out.print(diffMinutes + " minutes, ");
+					System.out.print(diffSeconds + " seconds.");
+				}
+		      else{
+			diffDays =0;
+		     }
+				
+				
+				   
+				  			
+							System.out.println("Book: " + b);
 					try {
 						
-						
-						
+											
 						String sql = ("SELECT * FROM lending WHERE lnedID = '"+b+"'");
 						Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ard_lms", "root", "");
 						PreparedStatement st = con.prepareStatement(sql);
 						ResultSet rs = st.executeQuery(sql);
 						while (rs.next()) {
+							
+							
 				%>
 				<form class="bookAdd" action="returnBook" method="POST"
 					name="return">
@@ -122,6 +185,16 @@
 							<td><input id="Text1" type="text" name="username"
 								value="<%=rs.getString("userName")%>"required /></td>
 						</tr>
+						<tr>
+							<td>date:</td>
+							<td><input id="Text1" type="text" name="rrdate"
+								value="<%=diffDays%>"/></td>
+						</tr>
+						<tr>
+							<td>fine</td>
+							<td><input id="Text1" type="text" name="fine"
+								value="<%=finecal%>"/></td>
+						</tr>
 
 						<tr>
 							<td></td>
@@ -130,8 +203,9 @@
 						</tr>
 
 					</table>
-					<%
+					<%  
 						}
+						
 						} catch (Exception ex) {
 							System.out.println("Error: " + ex);
 							ex.printStackTrace();
