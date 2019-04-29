@@ -76,7 +76,7 @@
 						
 						String b=request.getParameter("BookID");
 						String bti2 = null;
-						bti2 = request.getParameter("btitle2");
+						bti2= request.getParameter("btitle2");
 					
 						
 						
