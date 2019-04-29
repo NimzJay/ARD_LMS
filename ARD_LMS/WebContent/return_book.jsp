@@ -112,6 +112,7 @@
 				SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
 				 long diffDays = 0;
 				 long finecal = 0;
+				 int o =2;
 				Date d1 = null;
 				Date d2 = null;
 				 
