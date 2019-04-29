@@ -57,7 +57,11 @@
 					<tr>
 						<td>
 							<h1>
+<<<<<<< Upstream, based on 2c4f2f49de4f563e287765330dc6396e455a50b4
 								Issue History
+=======
+								issue historyy
+>>>>>>> 40e0bc0 test
 								<h1>
 						</td>
 						<td><a class="main_button" href="Book_view.jsp">View All
