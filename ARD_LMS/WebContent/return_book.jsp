@@ -88,7 +88,7 @@
 				<%     
 				
 				LocalDateTime dateTime = LocalDateTime.now(); 
-				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yy-mm-dd");
 				System.out.println(dateTime.format(formatter));
 				
 				String dateStart = dateTime.format(formatter);
@@ -109,7 +109,7 @@
 				}
 										
 				//HH converts hour in 24 hours format (0-23), day calculation
-				SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+				SimpleDateFormat format = new SimpleDateFormat("yy-mm-dd");
 				 long diffDays = 0;
 				 long finecal = 0;
 				 int o =2;
