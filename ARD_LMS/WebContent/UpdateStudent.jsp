@@ -22,7 +22,7 @@
 			<li><a class="selected" href="Category.jsp">Category</a></li>
 			<li><a href="Author.jsp">Author</a></li>
 			<li><a href="User.jsp">User</a></li>
-			<li><a href="Issue.jsp">Issue history</a></li>
+			<li><a href="Issue.jsp">Issue History</a></li>
 		</ul>
 	</div>
 
