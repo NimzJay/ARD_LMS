@@ -56,41 +56,43 @@
 				<table width="100%">
 					<tr>
 						<td>
-							<h1>Delete Books<h1>
+							<h1>
+								Delete Books
+								<h1>
 						</td>
-						<td><a class="main_button" href="Book_view.jsp">View All Books</a> 
-							<a class="main_button" href="Book_update.jsp">Edit Books</a> 
-							<a class="main_button" href="Book_add.jsp">Add Books</a>
-						</td>
+						<td><a class="main_button" href="Book_view.jsp">View All
+								Books</a> <a class="main_button" href="Book_update.jsp">Edit
+								Books</a> <a class="main_button" href="Book_add.jsp">Add Books</a></td>
 					</tr>
 				</table>
 			</div>
-			
+
 			<div class="forms">
 				<%
-					String b=request.getParameter("BookID");
+					String b = request.getParameter("BookID");
 					System.out.println("BookID: " + b);
 					try {
-						
+
 						Class.forName("com.mysql.jdbc.Driver");
-			            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ard_lms","root","");
-						String sql = ("Delete from books WHERE bid='"+b+"'"); 
-					    PreparedStatement st = con.prepareStatement(sql);
-					    st.executeUpdate(sql);
-					    System.out.println("Delete Book succeeded");
-					    request.getRequestDispatcher("Book_view.jsp").forward(request, response);
-					    
+						Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ard_lms", "root", "");
+						String sql = ("Delete from books WHERE bid='" + b + "'");
+						PreparedStatement st = con.prepareStatement(sql);
+						st.executeUpdate(sql);
+						System.out.println("Delete Book succeeded");
+						request.getRequestDispatcher("Book_view.jsp").forward(request, response);
 				%>
 				<form class="bookAdd" method="POST" name="admin" action="BookDelete">
 					<table class="tab" style="border-color: black; color: black"
 						align="center">
 						<tr>
-							<td>Book: <%request.getParameter("BookID");%> Deleted Successfully!:</td>
+							<td>Book: <%
+								request.getParameter("BookID");
+							%> Deleted Successfully!:
+							</td>
 							<td><a class="sub_button" href="Book_view.jsp">OK</a></td>
 						</tr>
 					</table>
 					<%
-
 						} catch (Exception ex) {
 							System.out.println("Error: " + ex);
 							ex.printStackTrace();
@@ -98,8 +100,8 @@
 					%>
 				</form>
 			</div>
-			
-			
+
+
 		</div>
 	</div>
 </body>

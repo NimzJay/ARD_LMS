@@ -50,9 +50,7 @@
 			</ul>
 		</div>
 		<div class="content">
-
 			<div class="box">
-				<br>
 				<table width="100%">
 					<tr>
 						<td>
