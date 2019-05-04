@@ -48,8 +48,7 @@
 	</div>
 	<br>
 	<br>
-	<br>
-	
+	<br>	
 	<div class="container">
 		<p id="heading">NEW ARRIVALS</p><br>
 	</div>
