@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class AdminDelete
  */
-@WebServlet("/AdminDelete")
+@WebServlet("/DeleteStudent")
 public class DeleteStudent extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -52,7 +52,7 @@ public class DeleteStudent extends HttpServlet {
 			String sql = ("Delete from user WHERE NIC='"+nic+"'"); 
 		    PreparedStatement st = con.prepareStatement(sql);
 		    st.executeUpdate(sql);
-		    System.out.println("Successfully Deleted ");
+		    System.out.println("Successfully Deleted Member");
 		    request.getRequestDispatcher("AddStudent.jsp").forward(request, response);
 		}catch(Exception ex) {
 			System.out.println("Error: " + ex);
