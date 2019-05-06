@@ -44,9 +44,9 @@
 								Add Library Member
 								<h1>
 						</td>
-						<td><a class="main_button" href="">Edit Member</a> <a
-							class="main_button" href="">Delete Member</a> <a
-							class="main_button" href="">View Member</a></td>
+						<td><a class="main_button" href="UpdateStudent.jsp">Edit Member</a> <a
+							class="main_button" href="DeleteStudents.jsp">Delete Member</a> <a
+							class="main_button" href="View.jsp">View Member</a></td>
 					</tr>
 				</table>
 			</div>
