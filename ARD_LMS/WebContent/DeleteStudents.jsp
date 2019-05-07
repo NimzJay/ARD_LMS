@@ -23,6 +23,7 @@
 				<li><a href="Book_search.jsp">Book</a></li>
 				<li><a class="selected" href="User.jsp">User</a></li>
 				<li><a href="Issue.jsp">Issue history</a></li>
+				<li><a href="Emailing.jsp">Email</a></li>
 			</ul>
 		</div>
 		<div class="content">
@@ -34,8 +35,8 @@
 							<h1>Delete Student<h1>
 						</td>
 						<td><a class="main_button" href="AdminView.jsp">View All Users</a> 
-							<a class="main_button" href="AdminUpdate.jsp">Update Student</a> 
-							<a class="main_button" href="AddAdmin.jsp">Add Student</a>
+							<a class="main_button" href="UpdateStudent.jsp">Update Student</a> 
+							<a class="main_button" href="AddStudent.jsp">Add Student</a>
 						</td>
 					</tr>
 				</table>

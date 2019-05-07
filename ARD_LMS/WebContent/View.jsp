@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Admin | ARD Library</title>
+<title>Memeber | ARD Library</title>
 <link rel="stylesheet" type="text/css" href="Styles/admin.css">
 <link rel="stylesheet" type="text/css" href="Styles/view.css">
 <meta name="viewport" content="width=device-width, initial-scale: 1.0, user-scalable=0" />

@@ -16,6 +16,11 @@
 		<div class="logo">
 			<a href="admin_index.jsp"> &nbsp &nbsp ARD &nbsp<span>Library</span></a>
 		</div>
+		<div class="logout" align="right">
+			<form class="logout" name="logout" action="logout" method="POST">
+				<input type="submit" value="LOGOUT" name="logout">
+			</form>
+		</div>
 	</div>
 	<div id="container">
 		<div class="sidebar">
@@ -23,8 +28,8 @@
 				<li><a href="admin_index.jsp">Dashboard</a></li>
 				<li><a href="Book_search.jsp">Book</a></li>
 				<li><a class="selected" href="User.jsp">User</a></li>
-				<li><a href="Issue.jsp">Issue history</a></li>
-				<li><a href="Issue.jsp">Email</a></li>
+				<li><a href="issue_history.jsp">Issue history</a></li>
+				<li><a href="Emailing.jsp">Email</a></li>
 				
 			</ul>
 		</div>
