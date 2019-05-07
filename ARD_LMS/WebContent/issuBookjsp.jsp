@@ -72,6 +72,8 @@
 			</div>
 			<div class="forms">
 				<%
+				
+				int iussetottodaye = 0;
 					try {
 						
 						String b=request.getParameter("BookID");
@@ -86,6 +88,7 @@
 							String c = null;
 							String t=null; 
 							int c2 =0;
+							
 							
 						
 						
@@ -106,6 +109,8 @@
 							PreparedStatement st2 = con.prepareStatement(sql2);
 							ResultSet rs2 = st2.executeQuery(sql2);
 							
+						
+							
 							while (rs2.next()) {
 								nic=rs2.getString("nic");
 								//System.out.println(nic);
@@ -124,6 +129,19 @@
 								c=rs.getString("copies");
 								c2 = Integer.parseInt(c);
 							}
+							
+							System.out.println(nic);
+	                        String sql3 = ("SELECT SUM(lendingQty)AS p FROM lending WHERE Nic = '"+nic+"'");
+						 	
+							Connection con3 = DriverManager.getConnection("jdbc:mysql://localhost:3306/ard_lms", "root", "");
+							PreparedStatement st3 = con3.prepareStatement(sql3);
+							ResultSet rs3= st3.executeQuery(sql3);
+							while (rs3.next()) { 
+							     
+								iussetottodaye = rs3.getInt("p");
+								System.out.println(iussetottodaye);
+								
+							}
 						
 						}
 											
@@ -133,15 +151,36 @@
 	 function checkqty(theForm) {
 		var text = theForm.copies.value;
 		var text2 = theForm.qty.value;
+		var text3 = theForm.userbrrqty.value;
+		var t = 3;
 		
 		var integer = parseInt(text,10);
 		var integer2 = parseInt(text2,10);
+		var integer3 =parseInt(text3,10);
+		var integer4 =parseInt(t,10);
+		
+		var int5 = integer2+integer3
+		var integer5 =parseInt(int5,10);
+		
 		 
-    if (integer2 > integer)
+    if (integer3>=integer4)
     {
-        alert('low qty');
+        alert('over load ');
         return false;
-    } else {
+    }
+    else if((integer2>integer4)){
+    	alert('more than three .... ');
+        return false;
+    }
+    else if((integer2 > integer)){
+    	alert('low qty or .... ');
+        return false;
+    }
+    else if((integer5 >integer4)){
+    	alert('more than three2 .... ');
+        return false;
+    }
+    else {
     	alert('ok');
         return true;
     }
@@ -168,7 +207,7 @@
 								value="<%=t%>" required /></td>
 						</tr>
 						<tr>
-							<td>Copies:</td>
+							<td>Available Copies:</td>
 							<td><input type="text" name="copies" 
 							value="<%=c2%>" required></td>
 						</tr>
@@ -188,8 +227,13 @@
 						</tr>
 							<tr>
 							<td>return date:</td>
-							<td><input id="datepicker" type="text" name="date"
+							<td><input id="datepicker" type="date" name="date"
 								required /></td>
+						</tr>
+							<tr>
+							<td>Currently Borrowed QuantityS:</td>
+							<td><input id="Text1" type="text" name="userbrrqty"
+								value="<%=iussetottodaye%>"required /></td>
 						</tr>
  				     <tr></tr>
 						<tr>
