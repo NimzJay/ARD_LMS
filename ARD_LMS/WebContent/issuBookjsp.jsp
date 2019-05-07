@@ -177,7 +177,7 @@
         return false;
     }
     else if((integer5 >integer4)){
-    	alert('more than three2 .... ');
+    	alert('more than three .... ');
         return false;
     }
     else {
