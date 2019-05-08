@@ -1,53 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-
-
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title> | ARD Library</title>
-<link rel="icon" type="image/png" href="pix/favicon.png">
 <link rel="stylesheet" type="text/css" href="Styles/admin.css">
 <link rel="stylesheet" type="text/css" href="Styles/category.css">
-<link rel="stylesheet" type="text/css" href="Styles/user.css">
-<meta name="viewport" content="width=device-width, initial-scale: 1.0, user-scalable=0" />
+<title>Student_Update | ARD_Library</title>
 </head>
 <body>
-<%@page import="java.sql.ResultSet" %>
-<%@page import="java.sql.Statement" %>
-<%@page import="java.sql.Connection" %>
-<%@page import="java.sql.DriverManager" %>
 <div class="header">
 	<div class="logo">
 		<a href="admin_index.jsp"> &nbsp &nbsp ARD &nbsp<span>Library</span></a>
 	</div>
-	<div class="logout" align="right">
-			<form class="logout" name="logout" action="logout" method="POST">
-				<input type="submit" value="LOGOUT" name="logout">
-			</form>
-		</div>
 </div>
 <div id="container">
 	<div class="sidebar">
 		<ul id="nav">
 			<li><a href="admin_index.jsp">Dashboard</a></li>
 			<li><a href="Book_search.jsp">Book</a></li>
-			<li><a class ="selected" href="User.jsp">User</a></li>
-			<li><a href="issue_history.jsp">Issue history</a></li>
+			<li><a class="selected" href="User.jsp">User</a></li>
+			<li><a href="Issue.jsp">Issue History</a></li>
 			<li><a href="Emailing.jsp">Email</a></li>
 		</ul>
 	</div>
-	<div class="content">
-		<h1>View the Admin</h1>
-		<a class="button" href="AdminUpdate.jsp">Edit Admin</a>
-		<a class="button" href="AdminDelete.jsp">Delete Admin</a>
-		<a class="button" href="AddAdmin.jsp">Add Admin</a>
-		
-		<%@page import="java.sql.ResultSet" %>
+
+<%@page import="java.sql.ResultSet" %>
 <%@page import="java.sql.Statement" %>
 <%@page import="java.sql.Connection" %>
 <%@page import="java.sql.DriverManager" %>
-  
+   
 <%
 String uid = request.getParameter("uid");
 String driverName = "com.mysql.jdbc.Driver";
@@ -67,11 +49,14 @@ Statement st = null;
 ResultSet rs = null;
 %>
 
-<h2 align = "center"><font><strong>All Users</strong></font></h2>
-<form action="" method="post">
-<table align = "center" cellpadding="0.2" cellspacing="0.2" border = "1" action = "dt" class="tab2">
+<h2 align = "center"><font><strong>Student Edit</strong></font></h2>
+<form action="UpdateStudent" method="post">
+<table align = "center" cellpadding="0.1" cellspacing="0.1" border = "1" action = "dt">
 <tr>
 </tr>
+
+
+
 
 <tr bgcolor = "dimgray">
 
@@ -84,12 +69,13 @@ ResultSet rs = null;
 <td><b>phone</b></td>
 <td><b>Email</b></td>
 
+
 </tr>
 <%
-try{
+try{String sql= ("SELECT *FROM user WHERE uid = (SELECT MAX(uid)FROM user)");
 	con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ard_lms","root","");
 	st=con.createStatement();
-	String sql=("SELECT * from user");
+	
 	
 	rs=st.executeQuery(sql);
 	while(rs.next()){
@@ -109,6 +95,9 @@ try{
 <td><input type="text" name="email" value="<%=rs.getString("email") %>"></td>
 <td><input type="text" name="address" value="<%=rs.getString("address") %>"></td>
 
+<td><a href = "admin_index.jsp?ID=<%=rs.getString("uid")%>"><button type="button" class="Delete">Delete</button></a></td>
+<td><input type="submit" value="Update" name="Update"></td>
+</tr>
 <%
 	}
 	
@@ -116,23 +105,14 @@ try{
 }catch (Exception ex){
 	System.out.println("Error" + ex);
 	ex.printStackTrace();
-	
-	//<input type="button" value="Delete">
-	 //<input type="button" value="Update"/>
 
 }
 
 %>
-		
-	
-	</div>
-	
-</div>
-
-<br><br>
-
 
 </table>
 </form>
+
+
 </body>
 </html>

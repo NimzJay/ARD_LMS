@@ -52,6 +52,9 @@ public class issu_book extends HttpServlet {
 			String NIC = request.getParameter("nic");
 			
 			
+			     String returnDate = request.getParameter("date");
+			
+			
 			      String co =request.getParameter("copies");
 			      int copies = Integer.parseInt(co);
 			     
@@ -69,7 +72,7 @@ public class issu_book extends HttpServlet {
 			    
         	Class.forName("com.mysql.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ard_lms","root",""); 
-            String sql = "INSERT INTO lending (Nic,bookTitele,userName,copies,lendingQty,status) VALUES ('"+NIC+"', '"+btitle+"','"+Uname+"', '"+copies+"', '"+c1+"', '"+"lended"+"')";
+            String sql = "INSERT INTO lending (Nic,bookTitele,userName,copies,lendingQty,status,rdate) VALUES ('"+NIC+"', '"+btitle+"','"+Uname+"', '"+copies+"', '"+c1+"', '"+"lended"+"', '"+returnDate+"')";
 			PreparedStatement st = con.prepareStatement(sql);
 			ResultSet rs;
 			st.executeUpdate(sql);

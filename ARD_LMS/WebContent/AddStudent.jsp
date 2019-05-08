@@ -18,6 +18,11 @@
 		<div class="logo">
 			<a href="admin_index.jsp"> &nbsp &nbsp ARD &nbsp<span>Library</span></a>
 		</div>
+		<div class="logout" align="right">
+			<form class="logout" name="logout" action="logout" method="POST">
+				<input type="submit" value="LOGOUT" name="logout">
+			</form>
+		</div>
 	</div>
 	<div id="container">
 		<div class="sidebar">
@@ -26,6 +31,7 @@
 				<li><a class="selected" href="Book_search.jsp">Book</a></li>
 				<li><a href="User.jsp">User</a></li>
 				<li><a href="issue_history.jsp">Issue history</a></li>
+				<li><a href="Emailing.jsp">Email</a></li>
 			</ul>
 		</div>
 		<div class="content">
@@ -38,9 +44,9 @@
 								Add Library Member
 								<h1>
 						</td>
-						<td><a class="main_button" href="">Edit Member</a> <a
-							class="main_button" href="">Delete Member</a> <a
-							class="main_button" href="">View Member</a></td>
+						<td><a class="main_button" href="UpdateStudent.jsp">Edit Member</a> <a
+							class="main_button" href="DeleteStudents.jsp">Delete Member</a> <a
+							class="main_button" href="View.jsp">View Member</a></td>
 					</tr>
 				</table>
 			</div>

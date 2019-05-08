@@ -27,12 +27,8 @@
 				<li><a class="selected" href="admin_index.jsp">Dashboard</a></li>
 				<li><a href="Book_search.jsp">Book</a></li>
 				<li><a href="User.jsp">User</a></li>
-<<<<<<< HEAD
 				<li><a href="issue_history.jsp">Issue history</a></li>
-=======
-				<li><a href="Issue.jsp">Issue history</a></li>
-				<li><a href="Emailing.jsp">Emailing</a></li>
->>>>>>> refs/remotes/origin/Developer
+				<li><a href="Emailing.jsp">Email</a></li>
 			</ul>
 		</div>
 		<div class="content">

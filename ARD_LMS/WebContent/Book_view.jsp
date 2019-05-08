@@ -33,6 +33,11 @@
 		<div class="logo">
 			<a href="admin_index.jsp"> &nbsp &nbsp ARD &nbsp<span>Library</span></a>
 		</div>
+		<div class="logout" align="right">
+			<form class="logout" name="logout" action="logout" method="POST">
+				<input type="submit" value="LOGOUT" name="logout">
+			</form>
+		</div>
 	</div>
 	<div id="container">
 		<div class="sidebar">
@@ -41,6 +46,7 @@
 				<li><a class="selected" href="Book_search.jsp">Book</a></li>
 				<li><a href="User.jsp">User</a></li>
 				<li><a href="issue_history.jsp">Issue history</a></li>
+				<li><a href="Emailing.jsp">Email</a></li>
 			</ul>
 		</div>
 		<div class="content">
@@ -103,10 +109,10 @@
 						<td><%=rs.getString("language")%></td>
 						<td><%=rs.getInt("copies")%></td>
 						<td><%=rs.getString("addedDate")%></td>
-						<td><a class="sub_button" href="Book_update.jsp">Update</a></td>
-						<td><a class="sub_button" href="Book_delete.jsp">Delete</a></td>
 						<% int id = Integer.parseInt(rs.getString("bid")); %>
-						<td><a class="sub_button" href=<%="issuBookjsp.jsp?BookID="+id+""%>>issue</a></td>
+						<td><a class="sub_button" href=<%="Book_update.jsp?BookID="+id+""%>>Update</a></td>
+						<td><a class="sub_button" href=<%="Book_delete.jsp?BookID="+id+""%>>Delete</a></td>
+						<td><a class="sub_button" href=<%="issuBookjsp.jsp?BookID="+id+""%>>Issue</a></td>
 					</tr>
 					<%
 						}

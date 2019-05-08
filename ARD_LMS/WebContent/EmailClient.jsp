@@ -5,6 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Email Client</title>
+<link rel="icon" type="image/png" href="pix/favicon.png">
 </head>
 <body>
 <h1>Contact Us</h1>

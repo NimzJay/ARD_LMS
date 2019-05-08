@@ -77,6 +77,11 @@ footer {
 		<div class="logo">
 			<a href="admin_index.jsp"> &nbsp &nbsp ARD &nbsp<span>Library</span></a>
 		</div>
+		<div class="logout" align="right">
+			<form class="logout" name="logout" action="logout" method="POST">
+				<input type="submit" value="LOGOUT" name="logout">
+			</form>
+		</div>
 	</div>
 	<div id="container">
 		<div class="sidebar">
@@ -84,7 +89,8 @@ footer {
 				<li><a class="selected" href="admin_index.jsp">Dashboard</a></li>
 				<li><a href="Book_search.jsp">Book</a></li>
 				<li><a href="User.jsp">User</a></li>
-				<li><a href="Issue.jsp">Issue history</a></li>
+				<li><a href="issue_history.jsp">Issue history</a></li>
+				<li><a href="Emailing.jsp">Email</a></li>
 			</ul>
 		</div>
 		<div class="content">
@@ -114,8 +120,11 @@ footer {
 
 
 				<article>
+					<a class="main_button" href="UpdateStudent.jsp">Edit Member</a> <a
+							class="main_button" href="DeleteStudents.jsp">Delete Member</a> <a
+							class="main_button" href="View.jsp">View Member</a>
 
-					<a class="main_button" href="">View Member</a> <a
+					<a class="main_button" href="View.jsp">View Member</a> <a
 						class="main_button" href="">Search Member</a> <a
 						class="main_button" href="AddStudent.jsp">Add Member</a> <br>
 					<br>
