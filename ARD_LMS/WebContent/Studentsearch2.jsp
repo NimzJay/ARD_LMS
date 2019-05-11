@@ -88,7 +88,7 @@ footer {
 			<ul id="nav">
 				<li><a class="selected" href="admin_index.jsp">Dashboard</a></li>
 				<li><a href="Book_search.jsp">Book</a></li>
-				<li><a href="User.jsp">User</a></li>
+				<li><a class = "selected" href="User.jsp">User</a></li>
 				<li><a href="issue_history.jsp">Issue history</a></li>
 				<li><a href="Emailing.jsp">Email</a></li>
 			</ul>
@@ -121,7 +121,7 @@ footer {
 
 				<article>
 
-					<a class="main_button" href="">View Member</a> <a
+					<a class="main_button" href="UpdateStudent.jsp">View Member</a> <a
 						class="main_button" href="">Search Member</a> <a
 						class="main_button" href="AddStudent.jsp">Add Member</a> <br>
 					<br>

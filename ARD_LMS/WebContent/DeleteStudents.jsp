@@ -5,6 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Delete Student | ARD Library</title>
+<link rel="icon" type="image/png" href="pix/favicon.png">
 <link rel="stylesheet" type="text/css" href="Styles/admin.css">
 <link rel="stylesheet" type="text/css" href="Styles/user.css">
 <meta name="viewport"
@@ -14,6 +15,11 @@
 	<div class="header">
 		<div class="logo">
 			<a href="admin_index.jsp"> &nbsp &nbsp ARD &nbsp<span>Library</span></a>
+		</div>
+		<div class="logout" align="right">
+			<form class="logout" name="logout" action="logout" method="POST">
+				<input type="submit" value="LOGOUT" name="logout">
+			</form>
 		</div>
 	</div>
 	<div id="container">
@@ -34,7 +40,7 @@
 						<td>
 							<h1>Delete Student<h1>
 						</td>
-						<td><a class="main_button" href="AdminView.jsp">View All Users</a> 
+						<td><a class="main_button" href="UpdateStudent.jsp">View All Members</a> 
 							<a class="main_button" href="UpdateStudent.jsp">Update Student</a> 
 							<a class="main_button" href="AddStudent.jsp">Add Student</a>
 						</td>
