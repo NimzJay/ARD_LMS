@@ -28,8 +28,8 @@
 		<div class="sidebar">
 			<ul id="nav">
 				<li><a href="admin_index.jsp">Dashboard</a></li>
-				<li><a class="selected" href="Book_search.jsp">Book</a></li>
-				<li><a href="User.jsp">User</a></li>
+				<li><a  href="Book_search.jsp">Book</a></li>
+				<li><a class="selected" href="User.jsp">User</a></li>
 				<li><a href="issue_history.jsp">Issue history</a></li>
 				<li><a href="Emailing.jsp">Email</a></li>
 			</ul>
@@ -45,7 +45,7 @@
 								<h1>
 						</td>
 						<td><a class="main_button" href="">Edit Member</a> <a
-							class="main_button" href="">Delete Member</a> <a
+							class="main_button" href="DeleteStudent.jsp">Delete Member</a> <a
 							class="main_button" href="">View Member</a></td>
 					</tr>
 				</table>

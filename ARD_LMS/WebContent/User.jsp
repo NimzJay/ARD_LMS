@@ -1,6 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
+	<%@page import="java.sql.Connection"%>
+<%@page import="java.io.IOException"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.*"%>
+<%@page import ="java.io.*" %>
+<%@page import ="javax.servlet.*" %>
+<%@page import ="javax.servlet.http.*" %>
 <html>
 <head>
 <meta charset="ISO-8859-1">
@@ -49,18 +57,99 @@
 			</div>
 			<div class="box">
 				<br>
+				 <%  
+				
+			     	
+				   
+				    try {
+				    	 int issuetot=0;
+				    	 int totAdmins = 0;
+				    	 int totMems = 0;
+				    	 int totuesr = 0;
+				 
+					
+				 	
+					
+					  	String sql4 = ("SELECT COUNT(uid)AS p4 FROM user");
+					 	
+						Connection con4 = DriverManager.getConnection("jdbc:mysql://localhost:3306/ard_lms", "root", "");
+						PreparedStatement st4 = con4.prepareStatement(sql4);
+						ResultSet rs4 = st4.executeQuery(sql4);
+						while (rs4.next()) { 
+						
+							totuesr = rs4.getInt("p4");
+							System.out.println(totuesr);
+							
+						}
+						
+						String sql3 = ("SELECT COUNT(uid)AS p3 FROM user where type='admin'");
+					 	
+						Connection con3 = DriverManager.getConnection("jdbc:mysql://localhost:3306/ard_lms", "root", "");
+						PreparedStatement st3 = con4.prepareStatement(sql3);
+						ResultSet rs3 = st3.executeQuery(sql3);
+						while (rs3.next()) { 
+						
+							totAdmins = rs3.getInt("p3");
+							System.out.println(totAdmins);
+							
+						}
+						
+						String sql2 = ("SELECT COUNT(uid)AS p2 FROM user where type='member'");
+					 	
+						Connection con2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/ard_lms", "root", "");
+						PreparedStatement st2 = con4.prepareStatement(sql2);
+						ResultSet rs2 = st2.executeQuery(sql2);
+						while (rs2.next()) { 
+						
+							totMems = rs2.getInt("p2");
+							System.out.println(totMems);
+							
+						}
+						
+						
+					 
+						
+					%>
 				<table width="100%">
 					<tr>
 						<td>
 							<div class="mini">Total Users</div>
 						</td>
 						<td>
-							<div class="mini">Members joined Today</div>
+							
+							<div class="mini">Total Admins</div>
+						</td>
+						<td>
+							<div class="mini">Total Library Members</div>
+						</td>
+						
+					</tr>
+						<tr>
+						<td>
+							<div class="mini"><%out.print(totuesr);%></div>
+						</td>
+						<td>
+							<div class="mini"><%out.print(totAdmins);%></div>
+						</td>
+						<td>
+							<div class="mini"><%out.print(totMems);%></div>
 						</td>
 					</tr>
 				</table>
 			</div>
 		</div>
 	</div>
+	<%
+					
+					//System.out.println(tot);
+					
+					} catch (Exception ex) {
+						System.out.println("Error: " + ex);
+						ex.printStackTrace();
+					}
+				
+				
+				%>
+				
 </body>
 </html>

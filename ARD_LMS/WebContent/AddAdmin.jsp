@@ -42,8 +42,10 @@
 								Add Admin
 								<h1>
 						</td>
-						<td><a class="button" href="AdminView.jsp">Edit Admin</a> <a
-							class="button" href="AdminView.jsp">Delete Admin</a></td>
+						<td><a class="button" href="AdminUpdate.jsp">Edit Admin</a> 
+						<a class="button" href="AdminDelete.jsp">Delete Admin</a>
+						<a class="button" href="AdminView.jsp">View All users</a>
+						</td>
 					</tr>
 				</table>
 			</div>

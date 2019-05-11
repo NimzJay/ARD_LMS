@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
+	pageEncoding="ISO-8859-1"%>
+
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Emailing | ARD Library</title>
+<title>Delete Admin | ARD Library</title>
 <link rel="icon" type="image/png" href="pix/favicon.png">
 <link rel="stylesheet" type="text/css" href="Styles/admin.css">
 <link rel="stylesheet" type="text/css" href="Styles/user.css">
@@ -15,8 +15,7 @@
 	<div class="header">
 		<div class="logo">
 			<a href="admin_index.jsp"> &nbsp &nbsp ARD &nbsp<span>Library</span></a>
-		</div>
-		<div class="logout" align="right">
+		</div><div class="logout" align="right">
 			<form class="logout" name="logout" action="logout" method="POST">
 				<input type="submit" value="LOGOUT" name="logout">
 			</form>
@@ -27,10 +26,10 @@
 		<div class="sidebar">
 			<ul id="nav">
 				<li><a href="admin_index.jsp">Dashboard</a></li>
-				<li><a class="selected" href="Book_search.jsp">Book</a></li>
-				<li><a href="User.jsp">User</a></li>
+				<li><a href="Book_search.jsp">Book</a></li>
+				<li><a class="selected" href="User.jsp">User</a></li>
 				<li><a href="issue_history.jsp">Issue history</a></li>
-				<li><a href="Emailing.jsp">Emailing</a></li>
+				<li><a href="Emailing.jsp">Email</a></li>
 			</ul>
 		</div>
 		<div class="content">
@@ -39,40 +38,30 @@
 				<table width="100%">
 					<tr>
 						<td>
-							<h1>Notify Clients<h1>
+							<h1>Delete Admin<h1>
 						</td>
-						<td>
-						<a class="main_button" href="............."><b>Add Recently Added Books</b></a> 
+						<td><a class="main_button" href="AdminView.jsp">View All Users</a> 
+							<a class="main_button" href="AdminUpdate.jsp">Update Admin</a> 
+							<a class="main_button" href="AddAdmin.jsp">Add Admin</a>
 						</td>
 					</tr>
 				</table>
 			</div>
+			
 			<div class="forms">
-				<p align="Left" style="letter-spacing: 4px">Email Form</p>
-				<hr>
-				<form class="bookAdd" name="bookAdd" action="BookAdd" method="POST">
-					<table class="tab" style="border-color: white; color: dimgray"
+				<form class="AddAdmin" method="POST" name="admin" action="AdminDelete">
+					<table class="tab" style="border-color: black; color: black"
 						align="center">
 						<tr>
-							<td>To:</td>
-							<td><input id="Text1" type="text" name="btitle" required /></td>
-						</tr>
-						<tr>
-							<td>Subject:</td>
-							<td><input id="Text1" type="text" name="isbn" required /></td>
-						</tr>
-						<tr>
-							<td>Message:</td>
-							<td><textarea name="message" cols="60" rows="7"></textarea></td>
-						</tr>
-						<tr>
-							<td><input type="reset" value="Reset" name="reset"></td>
-							<td><input type="submit" value="Submit">
-							</td>
+							<td>Admin NIC:</td>
+							<td><input id="Text1" type="text" name="nic" required /></td>
+							<td><input type="submit" value="Delete" name="btnAdd"></td>
 						</tr>
 					</table>
 				</form>
 			</div>
+			
+			
 		</div>
 	</div>
 </body>
