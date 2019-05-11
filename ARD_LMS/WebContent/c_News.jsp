@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Catalog | ARD Library</title>
+<title>News | ARD Library</title>
 </head>
 <body>
 

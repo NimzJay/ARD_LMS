@@ -120,11 +120,8 @@ footer {
 
 
 				<article>
-					<a class="main_button" href="UpdateStudent.jsp">Edit Member</a> <a
-							class="main_button" href="DeleteStudents.jsp">Delete Member</a> <a
-							class="main_button" href="View.jsp">View Member</a>
 
-					<a class="main_button" href="View.jsp">View Member</a> <a
+					<a class="main_button" href="">View Member</a> <a
 						class="main_button" href="">Search Member</a> <a
 						class="main_button" href="AddStudent.jsp">Add Member</a> <br>
 					<br>
