@@ -1,5 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@page import="java.sql.*"%>
+<%@page import="javax.servlet.*"%>
+<%@page import="java.io.IOException"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="util.DBConnection" %>
+
+<%
+	//String btitle = request.getParameter("bTitle");
+	String driverName = "com.mysql.jdbc.Driver";
+
+	try {
+		Class.forName(driverName);
+	} catch (ClassNotFoundException e) {
+		e.printStackTrace();
+	}
+
+	Connection con = null;
+	Statement st = null;
+	ResultSet rs = null;
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,10 +72,70 @@
 	<br>
 	<br>
 	<br>
-	
+
 	<div class="container">
-		<p id="heading"> NEW ARRIVALS </p><br>
+		<p id="heading">NEW ARRIVALS</p>
+		<br>
+		<div class="forms">
+			<table width="100%" class="tab">
+				<tr>
+				</tr>
+
+				<tr bgcolor="lightgray">
+
+					<td><b>Book Title</b></td>
+					<td><b>ISBN</b></td>
+					<td><b>Author</b></td>
+					<td><b>Category</b></td>
+					<td><b>Publisher</b></td>
+					<td><b>Edition</b></td>
+					<td><b>Language</b></td>
+					<td><b>Copies</b></td>
+					<td><b>addedDate</b></td>
+					<td><b>Availability</b></td>
+				</tr>
+				<%
+					try {
+						con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ard_lms", "root", "");
+						st = con.createStatement();
+						String sql = ("SELECT * FROM books where addedDate > DATE_SUB(NOW(), INTERVAL 1 WEEK) ORDER BY bTitle DESC");
+						rs = st.executeQuery(sql);
+						while (rs.next()) {
+							String alert;
+							int cop = rs.getInt("copies");
+							System.out.println(cop);
+							if (cop == 0){
+								alert = "Not Available";
+							}
+							else{
+								alert = "Available";
+							}
+							request.setAttribute("alert",alert);
+							//String bt = rs.getString("bTitle");
+							//Sesh.setbTitle(bt);
+				%>
+				<tr>
+					<td><%=rs.getString("bTitle")%></td>
+					<td><%=rs.getString("isbn")%></td>
+					<td><%=rs.getString("author")%></td>
+					<td><%=rs.getString("category")%></td>
+					<td><%=rs.getString("publisher")%></td>
+					<td><%=rs.getString("edition")%></td>
+					<td><%=rs.getString("language")%></td>
+					<td><%=rs.getInt("copies")%></td>
+					<td><%=rs.getString("addedDate")%></td>
+					<td><%= request.getAttribute("alert")%></td>
+				</tr>
+				<%
+					}
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				%>
+			</table>
+		</div>
 	</div>
+	<br><br><br><br><br><br><br><br><br><br><br><br>
 	<footer>
 		<a href="clientUI.jsp" class="footer"> HOME </a> 
 		<a href="c_AboutUs.jsp" class="footer"> ABOUT US </a> 
