@@ -23,6 +23,9 @@
 				<li><a class="selected" href="Book_search.jsp">Book</a></li>
 				<li><a href="User.jsp">User</a></li>
 				<li><a href="Issue.jsp">Issue history</a></li>
+				<li><a href="pending.jsp">Pending Books</a></li>
+				<li><a href="Veiw_all_reservation.jsp">Reservations</a></li>
+				<li><a href="Emailing.jsp">Email</a></li>
 			</ul>
 		</div>
 		<div class="content">

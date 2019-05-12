@@ -27,10 +27,12 @@
 		<div class="sidebar">
 			<ul id="nav">
 				<li><a href="admin_index.jsp">Dashboard</a></li>
-				<li><a class="selected" href="Book_search.jsp">Book</a></li>
+				<li><a href="Book_search.jsp">Book</a></li>
 				<li><a href="User.jsp">User</a></li>
 				<li><a href="issue_history.jsp">Issue history</a></li>
-				<li><a href="Emailing.jsp">Emailing</a></li>
+				<li><a href="pending.jsp">Pending Books</a></li>
+				<li><a href="Veiw_all_reservation.jsp">Reservations</a></li>
+				<li><a class="selected" href="Emailing.jsp">Emailing</a></li>
 			</ul>
 		</div>
 		<div class="content">
