@@ -40,8 +40,8 @@
 		}
 	</script>
 	<div class="header">
+		<a href="index.jsp" class="right"> LOGOUT </a>
 		<a href="c_MyProfile.jsp" class="right"> MY PROFILE </a> 
-		<a href="c_News.jsp" class="right"> NEWS </a> 
 		<a href="c_Catalog.jsp" class="right"> CATALOG </a> 
 		<a href="c_AboutUs.jsp" class="right"> ABOUT US </a> 
 		<a href="clientUI.jsp" class="right"> HOME </a> 
@@ -51,47 +51,7 @@
 	<br>
 	
 	<div class="container">
-		<p id="heading">OUR SERVICES</p><br>
-		<table class="container" align="center">
-			<tr>
-				<th>Ask a Librarian</th>
-				<th>Meeting Rooms</th>
-				<th>Study Rooms</th>
-			</tr>
-			<tr>
-				<td>Feel free to ask our librarians<br>
-					about any book located at our <br>
-					library storage.
-				</td>
-				<td>Our library provides well-<br>
-					equipped meeting rooms <br>
-					ranging in size from 12 to 300.
-				</td>
-				<td>Our study rooms located in <br>
-					library spaces can be reserved <br>
-					up to two weeks in advance.
-				</td>
-			</tr>
-			<tr>
-				<th>Research</th>
-				<th>Exhibitions</th>
-				<th>Computer classes</th>
-			</tr>
-			<tr>
-				<td>ARD library offers <br>
-					various set of resources for <br>
-					researchers and scholars.
-				</td>
-				<td>Feel free to visit any of our <br>
-					regular book exhibitions <br>
-					featuring popular authors.
-				</td>
-				<td>Gain access to the immense <br>
-					eBook database using our <br>
-					computer classes.
-				</td>
-			</tr>
-		</table>
+		<p id="heading"> NEW ARRIVALS </p><br>
 	</div>
 	<footer>
 		<a href="clientUI.jsp" class="footer"> HOME </a> 
