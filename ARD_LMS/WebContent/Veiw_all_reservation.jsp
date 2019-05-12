@@ -56,7 +56,7 @@
 							<h1>View all Book Reservations<h1>
 						</td>
 						<td><a class="main_button" href="Veiw_all_reservation.jsp">View All Book Reservations</a> 
-							<a class="main_button" href="BookReservationUpdate.jsp">Edit Book Reservations</a> 
+							<a class="main_button" href="Book_reservation_update.jsp">Edit Book Reservations</a> 
 							<a class="main_button" href="Book_Reservation.jsp">Add Book Reservations</a>
 						</td>
 					</tr>
