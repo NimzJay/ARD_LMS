@@ -43,13 +43,13 @@ public class DeleteStudent extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		try {
-			String nic = request.getParameter("nic");
+			String id = request.getParameter("ID");
 
-			System.out.println("NIC: " + nic);
+			System.out.println("UID: " + id);
 
 			Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ard_lms","root","");
-			String sql = ("Delete from user WHERE nic='"+nic+"'"); 
+			String sql = ("Delete from user WHERE uid='"+id+"'"); 
 		    PreparedStatement st = con.prepareStatement(sql);
 		    st.executeUpdate(sql);
 		    System.out.println("Successfully Deleted ");

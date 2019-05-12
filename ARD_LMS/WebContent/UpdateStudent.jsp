@@ -62,7 +62,7 @@ ResultSet rs = null;
 
 
 <tr bgcolor = "dimgray">
-
+<td><b>User ID</b></td>
 <td><b>Username</b></td>
 <td><b>Password</b></td>
 <td><b>FirstName</b></td>
@@ -87,7 +87,7 @@ try{String sql= ("SELECT *FROM user WHERE type ='member'");
 
 <tr bgcolor = "dimgray">
 
-
+<td><input type="text" name="id" value="<%=rs.getString("uid") %>"></td>
 <td><input type="text" name="username" value="<%=rs.getString("Username") %>"></td>
 <td><input type="text" name="password" value="<%=rs.getString("Password") %>"></td>
 <td><input type="text" name="fname" value="<%=rs.getString("fname") %>"></td>
@@ -97,8 +97,8 @@ try{String sql= ("SELECT *FROM user WHERE type ='member'");
 <td><input type="text" name="phone" value="<%=rs.getString("phone") %>"></td>
 <td><input type="text" name="email" value="<%=rs.getString("email") %>"></td>
 <td><input type="text" name="address" value="<%=rs.getString("address") %>"></td>
-
-<td><a href = "UpdateStudent.jsp?ID=<%=rs.getString("nic")%>"><button type="button" class="Delete">Delete</button></a></td>
+<% int id = Integer.parseInt(rs.getString("uid")); %>
+<td><a href=<%="DeleteStudents.jsp?ID="+id+""%>>Delete</a></td>
 <td><input type="submit" value="Update" name="Update"></td>
 </tr>
 <%

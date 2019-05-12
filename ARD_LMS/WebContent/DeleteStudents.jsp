@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@page import="java.sql.*"%>
+<%@page import="javax.servlet.*"%>
+<%@page import="java.io.IOException"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.DriverManager"%>
 
 <html>
 <head>
@@ -49,15 +56,30 @@
 			</div>
 			
 			<div class="forms">
-				<form class="DeleteStudents" method="POST" name="admin" action="StudentDelete">
-					<table class="tab" style="border-color: black; color: black"
-						align="center">
-						<tr>
-							<td>Student NIC:</td>
-							<td><input id="Text1" type="text" name="nic" required /></td>
-							<td><input type="submit" value="Delete" name="btnAdd"></td>
-						</tr>
-					</table>
+				<%
+				try {
+					String id = request.getParameter("ID");
+
+					System.out.println("UID: " + id);
+
+					Class.forName("com.mysql.jdbc.Driver");
+		            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ard_lms","root","");
+					String sql = ("Delete from user WHERE uid='"+id+"'"); 
+				    PreparedStatement st = con.prepareStatement(sql);
+				    st.executeUpdate(sql);
+				    System.out.println("Successfully Deleted ");
+				    request.getRequestDispatcher("UpdateStudent.jsp").forward(request, response);
+					    
+				%>
+				<form class="bookAdd" method="POST" name="admin" action="BookDelete">
+	
+					<%
+
+						} catch (Exception ex) {
+							System.out.println("Error: " + ex);
+							ex.printStackTrace();
+						}
+					%>
 				</form>
 			</div>
 			
