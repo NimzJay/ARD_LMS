@@ -59,13 +59,10 @@
 					<tr>
 						<td>
 							<h1>
-								Issue History
+								Pending Books
 
 								<h1>
 						</td>
-						<td><a class="main_button" href="Book_view.jsp">View All
-								Books</a> <a class="main_button" href="Book_update.jsp">Edit
-								Books</a> <a class="main_button" href="Book_add.jsp">Add Books</a></td>
 					</tr>
 				</table>
 			</div>
@@ -92,18 +89,10 @@
 						try {
 							con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ard_lms", "root", "");
 							st = con.createStatement();
-							String sql = ("SELECT * FROM lending where rdate < <= CURDATE()");
+							String sql = ("SELECT * FROM lending where rdate < CURDATE()");
 							rs = st.executeQuery(sql);
 							while (rs.next()) {
-								String alert;
-								int cop = rs.getInt("copies");
-								System.out.println(cop);
-								if (cop == 0){
-									alert = "Not Available";
-								}
-								else{
-									alert = "Available";
-								}
+								String alert = "PENDING";
 								request.setAttribute("alert",alert);
 								//String bt = rs.getString("bTitle");
 								//Sesh.setbTitle(bt);
@@ -116,7 +105,6 @@
 						<td><%=rs.getString("copies")%></td>
 						<td><%=rs.getString("lendingQty")%></td>
 						<td><%=rs.getString("status")%></td>
-						<td><%=rs.getString("rdate")%></td>
 						<td><%=rs.getString("rdate")%></td>
 						<td><%= request.getAttribute("alert")%></td>
 					</tr>
