@@ -1,5 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="model.Sesh"%>
+
+<%
+	String btitle = request.getParameter("bTitle");
+	String driverName = "com.mysql.jdbc.Driver";
+
+	try {
+		Class.forName(driverName);
+	} catch (ClassNotFoundException e) {
+		e.printStackTrace();
+	}
+
+	Connection con = null;
+	Statement st = null;
+	ResultSet rs = null;
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,10 +68,50 @@
 	<br>
 	<br>
 	<div class="container">
-		<p id="heading"> MY PROFILE </p><br>
+		<p id="heading">CURRENTLY CURROWED BOOKS</p>
+		<br>
+		<div class="forms">
+			<table width="100%" class="tab">
+				<tr>
+				</tr>
 
+				<tr bgcolor="lightgray">
+					<td><b>nic</b></td>
+					<td><b>book titele</b></td>
+					<td><b>Borrowed Copies</b></td>
+					<td><b>status</b></td>
+					<td><b>Due date</b></td>
+
+				</tr>
+				<%
+					try {
+						String un = Sesh.getUsername();
+						System.out.println(un);
+						con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ard_lms", "root", "");
+						st = con.createStatement();
+						String sql = ("SELECT * FROM lending where username = '"+un+"'");
+						rs = st.executeQuery(sql);
+						while (rs.next()) {
+							//String bt = rs.getString("bTitle");
+							//Sesh.setbTitle(bt);
+				%>
+				<tr>
+					<td><%=rs.getString("Nic")%></td>
+					<td><%=rs.getString("bookTitele")%></td>
+					<td><%=rs.getString("lendingQty")%></td>
+					<td><%=rs.getString("status")%></td>
+					<td><%=rs.getString("rdate")%></td>
+				</tr>
+				<%
+					}
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				%>
+			</table>
+		</div>
 	</div>
-	
+	<br><br>
 	<footer>
 		<a href="clientUI.jsp" class="footer"> HOME </a> 
 		<a href="c_AboutUs.jsp" class="footer"> ABOUT US </a> 

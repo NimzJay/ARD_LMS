@@ -1,5 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@page import="java.sql.*"%>
+<%@page import="javax.servlet.*"%>
+<%@page import="java.io.IOException"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="util.DBConnection" %>
+
+<%
+	//String btitle = request.getParameter("bTitle");
+	String driverName = "com.mysql.jdbc.Driver";
+
+	try {
+		Class.forName(driverName);
+	} catch (ClassNotFoundException e) {
+		e.printStackTrace();
+	}
+
+	Connection con, con2 = null;
+	Statement st,st2 = null;
+	ResultSet rs,rs2 = null;
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,10 +71,135 @@
 	<br>
 	<br>
 	<div class="container">
-		<p id="heading">CATALOG</p><br>
-
+		<p id="heading">CATALOG</p>
+		<br>
+		<div class="forms">
+			<table class="tab" align="center">
+				<tr>
+					<td>
+						<form action="" method="POST" name="admin">
+							<table class="tab" align="center">
+								<tr>
+									<td><input id="Text1" type="text" name="tit" required /></td>
+									<td><input type="submit" value="Search By Title"
+										name="titleSearch"></td>
+									<%
+										String tit = request.getParameter("tit");
+									%>
+								</tr>
+							</table>
+						</form>
+					</td>
+					<td>
+						<form action="" method="POST" name="admin">
+							<table class="tab" align="center">
+								<tr>
+									<td><input id="Text1" type="text" name="author" required /></td>
+									<td><input type="submit" value="Search By Author"
+										name="authorSearch"></td>
+									<%
+										String auth = request.getParameter("author");
+									%>
+								</tr>
+							</table>
+						</form>
+					</td>
+				</tr>
+			</table>
+			<br><br>
+		</div>
+		<div class="forms">
+			<table width="100%" class="tab">
+				<tr>
+				</tr>
+				<tr bgcolor="lightgray">
+					<td><b>Book Title</b></td>
+					<td><b>ISBN</b></td>
+					<td><b>Author</b></td>
+					<td><b>Category</b></td>
+					<td><b>Publisher</b></td>
+					<td><b>Edition</b></td>
+					<td><b>Language</b></td>
+					<td><b>Copies</b></td>
+					<td><b>addedDate</b></td>
+				</tr>
+				<%
+					System.out.println("Book ID: " + tit);
+					try {
+						con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ard_lms", "root", "");
+						st = con.createStatement();
+						String sql = ("SELECT * FROM books where bTitle = '"+tit+"'");
+						rs = st.executeQuery(sql);
+						while (rs.next()) {
+							//String bt = rs.getString("bTitle");
+							//Sesh.setbTitle(bt);
+				%>
+				<tr>
+					<td><%=rs.getString("bTitle")%></td>
+					<td><%=rs.getString("isbn")%></td>
+					<td><%=rs.getString("author")%></td>
+					<td><%=rs.getString("category")%></td>
+					<td><%=rs.getString("publisher")%></td>
+					<td><%=rs.getString("edition")%></td>
+					<td><%=rs.getString("language")%></td>
+					<td><%=rs.getInt("copies")%></td>
+					<td><%=rs.getString("addedDate")%></td>
+				</tr>
+				<%
+					}
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				%>
+			</table>
+		</div>
+		<div class="forms">
+			<table width="100%" class="tab">
+				<tr>
+				</tr>
+				<tr bgcolor="lightgray">
+					<td><b>Book Title</b></td>
+					<td><b>ISBN</b></td>
+					<td><b>Author</b></td>
+					<td><b>Category</b></td>
+					<td><b>Publisher</b></td>
+					<td><b>Edition</b></td>
+					<td><b>Language</b></td>
+					<td><b>Copies</b></td>
+					<td><b>addedDate</b></td>
+				</tr>
+				<%
+					try {
+						System.out.println("Book ID: " + auth);
+						con2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/ard_lms", "root", "");
+						st2 = con2.createStatement();
+						String sql2 = ("SELECT * FROM books where author = '"+auth+"'");
+						rs2 = st2.executeQuery(sql2);
+						while (rs2.next()) {
+							//String bt = rs.getString("bTitle");
+							//Sesh.setbTitle(bt);
+				%>
+				<tr>
+					<td><%=rs2.getString("bTitle")%></td>
+					<td><%=rs2.getString("isbn")%></td>
+					<td><%=rs2.getString("author")%></td>
+					<td><%=rs2.getString("category")%></td>
+					<td><%=rs2.getString("publisher")%></td>
+					<td><%=rs2.getString("edition")%></td>
+					<td><%=rs2.getString("language")%></td>
+					<td><%=rs2.getInt("copies")%></td>
+					<td><%=rs2.getString("addedDate")%></td>
+				</tr>
+				<%
+					}
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				%>
+			</table>
+		</div>
 	</div>
-	
+	<br><br><br>
 	<footer>
 		<a href="clientUI.jsp" class="footer"> HOME </a> 
 		<a href="c_AboutUs.jsp" class="footer"> ABOUT US </a> 

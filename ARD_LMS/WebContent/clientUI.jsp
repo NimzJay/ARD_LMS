@@ -73,7 +73,7 @@
 	<br>
 	<br>
 
-	<div class="container">
+	<div class="container">		
 		<p id="heading">NEW ARRIVALS</p>
 		<br>
 		<div class="forms">
