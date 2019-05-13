@@ -51,10 +51,10 @@ public class UpdateStudent extends HttpServlet {
 		String Address =request.getParameter("address"); 
 
 		try {
-			String user=request.getParameter("username");
-			System.out.println(user);
+			String uid=request.getParameter("id");
+			System.out.println(uid);
 			//where id=(select MAX(uid) from user)
-			String sql = "UPDATE user SET username='"+Username+"',password='"+Password+"',fname='"+FirstName+"',lname='"+LastName+"',dob='" +dob+"',nic='"+NIC+"',phone='"+phone+"',email='"+Email+"'Where nic ='"+NIC+"'  ";
+			String sql = "UPDATE user SET username='"+Username+"',password='"+Password+"',fname='"+FirstName+"',lname='"+LastName+"',dob='" +dob+"',nic='"+NIC+"',phone='"+phone+"',email='"+Email+"'WHERE uid='"+uid+"'  ";
 			Class.forName("com.mysql.jdbc.Driver");
 			java.sql.Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/ard_lms","root","");
 			java.sql.PreparedStatement st = con.prepareStatement(sql);
