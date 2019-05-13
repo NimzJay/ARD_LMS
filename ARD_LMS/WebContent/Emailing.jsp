@@ -41,38 +41,42 @@
 				<table width="100%">
 					<tr>
 						<td>
-							<h1>Notify Clients<h1>
+							<h1>
+								Notify Clients
+								<h1>
 						</td>
-						<td>
-						<a class="main_button" href="............."><b>Add Recently Added Books</b></a> 
-						</td>
+						<td><a class="main_button" href="#"><b>Add
+									Recently Added Books</b></a></td>
 					</tr>
 				</table>
 			</div>
 			<div class="forms">
 				<p align="Left" style="letter-spacing: 4px">Email Form</p>
 				<hr>
-				<form class="bookAdd" name="bookAdd" action="BookAdd" method="POST">
-					<table class="tab" style="border-color: white; color: dimgray"
-						align="center">
+				<br>
+				<form action="EmailSendingServlet" method="post">
+					<table border="0" width="35%" align="center">
 						<tr>
-							<td>To:</td>
-							<td><input id="Text1" type="text" name="btitle" required /></td>
+							<td width="50%">Recipient address</td>
+							<td><input type="text" name="recipient" size="50" /></td>
 						</tr>
 						<tr>
-							<td>Subject:</td>
-							<td><input id="Text1" type="text" name="isbn" required /></td>
+							<td>Subject</td>
+							<td><input type="text" name="subject" size="50" /></td>
 						</tr>
 						<tr>
-							<td>Message:</td>
-							<td><textarea name="message" cols="60" rows="7"></textarea></td>
+							<td>Content</td>
+							<td><textarea rows="10" cols="39" name="content"></textarea>
+							</td>
 						</tr>
 						<tr>
-							<td><input type="reset" value="Reset" name="reset"></td>
-							<td><input type="submit" value="Submit">
+							<td colspan="2" align="center">
+								<input type="submit"
+								value="Send" />
 							</td>
 						</tr>
 					</table>
+
 				</form>
 			</div>
 		</div>
