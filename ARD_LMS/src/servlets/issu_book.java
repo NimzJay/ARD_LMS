@@ -54,7 +54,7 @@ public class issu_book extends HttpServlet {
 			String NIC = request.getParameter("nic");
 
 			String returnDate = request.getParameter("date");
-
+			 String returnDate2 = request.getParameter("date2");
 			String co = request.getParameter("copies");
 			int copies = Integer.parseInt(co);
 
@@ -76,25 +76,22 @@ public class issu_book extends HttpServlet {
 			} else {
 
 				Class.forName("com.mysql.jdbc.Driver");
-				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ard_lms", "root", "");
-				String sql = "INSERT INTO lending (Nic,bookTitele,userName,copies,lendingQty,status,rdate) VALUES ('"
-						+ NIC + "', '" + btitle + "','" + Uname + "', '" + copies + "', '" + c1 + "', '" + "lended"
-						+ "', '" + returnDate + "')";
+				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ard_lms","root",""); 
+	            String sql = "INSERT INTO lending (Nic,bookTitele,userName,copies,lendingQty,status,rdate,issueDate) VALUES ('"+NIC+"', '"+btitle+"','"+Uname+"', '"+copies+"', '"+c1+"', '"+"lended"+"', '"+returnDate+"', '"+returnDate2+"')";
 				PreparedStatement st = con.prepareStatement(sql);
 				ResultSet rs;
 				st.executeUpdate(sql);
 				System.out.println("Successfully Inserted record!");
-				// request.getRequestDispatcher("Book_view.jsp").forward(request, response);
-
-				String sql2 = "UPDATE books SET copies='" + newcopy + "' where bTitle = '" + btitle + "'";
+				//request.getRequestDispatcher("Book_view.jsp").forward(request, response);
+				
+				String sql2 = "UPDATE books SET copies='"+newcopy+"' where bTitle = '"+btitle+"'";
 				Class.forName("com.mysql.jdbc.Driver");
-				java.sql.Connection con2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/ard_lms", "root",
-						"");
+				java.sql.Connection con2= DriverManager.getConnection("jdbc:mysql://localhost:3306/ard_lms","root","");
 				java.sql.PreparedStatement st2 = con2.prepareStatement(sql2);
 				ResultSet rs2;
 				st.executeUpdate(sql2);
 				System.out.println("Succesfully Updated !!");
-				request.getRequestDispatcher("issue_history.jsp").forward(request, response);
+				request.getRequestDispatcher("issue_history.jsp").forward(request,response);
 			}
 
 		} catch (Exception ex) {

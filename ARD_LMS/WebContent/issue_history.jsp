@@ -46,15 +46,11 @@
 				<li><a href="Book_search.jsp">Book</a></li>
 				<li><a href="User.jsp">User</a></li>
 				<li><a class="selected" href="issue_history.jsp">Issue history</a></li>
-				<li><a href="pending.jsp">Pending Books</a></li>
-				<li><a href="Veiw_all_reservation.jsp">Reservations</a></li>
 				<li><a href="Emailing.jsp">Email</a></li>
 			</ul>
 		</div>
 		<div class="content">
-
 			<div class="box">
-				<br>
 				<table width="100%">
 					<tr>
 						<td>
@@ -84,6 +80,7 @@
 						<td><b>lendingQty</b></td>						
 						<td><b>status</b></td>
 					    <td><b>return date</b></td>
+					    <td><b>issue date</b></td>
 						<td><b></b></td>
 						<td><b></b></td>
 
@@ -107,6 +104,7 @@
 						<td><%=rs.getString("lendingQty")%></td>
 						<td><%=rs.getString("status")%></td>
 						<td><%=rs.getString("rdate")%></td>
+					    <td><%=rs.getString("issueDate")%></td>
 						<% int id = Integer.parseInt(rs.getString("lnedID")); %>						
 						<td><a class="sub_button" href="Book_update.jsp">Update</a></td>						
 			            <td><a class="sub_button" href=<%="return_book.jsp?ID="+id+""%>>return</a></td>

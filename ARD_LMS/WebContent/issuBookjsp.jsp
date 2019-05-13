@@ -195,9 +195,13 @@
             $(function () {
                 $("#datepicker").datepicker({ dateFormat: "yy-mm-dd" });
             });
-            
-            
         </script>
+           <script>
+            $(function () {
+                $("#datepicker2").datepicker({ dateFormat: "yy-mm-dd" });
+            });
+        </script>
+				
 				
           
 				<form class="bookAdd" action="issu_book" onsubmit="return checkqty(this);" method="POST"
@@ -232,6 +236,11 @@
 							<tr>
 							<td>return date:</td>
 							<td><input id="datepicker" type="date" name="date"
+								required /></td>
+						</tr>
+						<tr>
+							<td>issue date:</td>
+							<td><input id="datepicker2" type="date" name="date2"
 								required /></td>
 						</tr>
 							<tr>
