@@ -83,7 +83,7 @@
 						
 					}
 					
-				 	String sql2 = ("SELECT rdate,SUM(lendingQty)AS p FROM lending WHERE DATE(rdate) = CURDATE()");
+				 	String sql2 = ("SELECT rdate,SUM(lendingQty)AS p FROM lending WHERE DATE(issueDate) = CURDATE()");
 				 	
 					Connection con2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/ard_lms", "root", "");
 					PreparedStatement st2 = con2.prepareStatement(sql2);

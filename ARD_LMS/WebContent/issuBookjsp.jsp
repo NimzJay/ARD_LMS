@@ -252,7 +252,7 @@
 						<tr>
 							<td></td>
 							<td><input type="submit" value="issue" name="issu" /></td>
-                             
+                            <td><a href=""></a></td> 
 						</tr>                    			 				  				   				    
 					</table>
 					
