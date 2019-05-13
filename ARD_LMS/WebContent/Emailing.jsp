@@ -1,5 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.time.LocalDate"%>
+<%@page import="java.time.LocalDate"%>
+
+
+<%
+	String btitle = request.getParameter("bTitle");
+	String driverName = "com.mysql.jdbc.Driver";
+	
+	
+	try {
+		Class.forName(driverName);
+	} catch (ClassNotFoundException e) {
+		e.printStackTrace();
+	}
+
+	Connection con = null;
+	Statement st = null;
+	ResultSet rs = null;
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +35,7 @@
 	content="width=device-width, initial-scale: 1.0, user-scalable=0" />
 </head>
 <body>
+	
 	<div class="header">
 		<div class="logo">
 			<a href="admin_index.jsp"> &nbsp &nbsp ARD &nbsp<span>Library</span></a>
@@ -55,6 +79,20 @@
 				<hr>
 				<br>
 				<form action="EmailSendingServlet" method="post">
+					<%
+						LocalDate today = LocalDate.now(); // Create a date object
+						System.out.println(today); // Display the current date
+
+						try {
+							con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ard_lms", "root", "");
+							st = con.createStatement();
+							String sql = ("SELECT * FROM books where addedDate = '"+today+"' ");
+							rs = st.executeQuery(sql);
+							while (rs.next()) {
+								String bt = rs.getString("bTitle");
+								String auth = rs.getString("author");
+								//Sesh.setbTitle(bt);
+					%>
 					<table border="0" width="35%" align="center">
 						<tr>
 							<td width="50%">Recipient address</td>
@@ -62,11 +100,15 @@
 						</tr>
 						<tr>
 							<td>Subject</td>
-							<td><input type="text" name="subject" size="50" /></td>
+							<td><input type="text" name="subject" size="50" value="New Arrivals"/></td>
 						</tr>
 						<tr>
 							<td>Content</td>
-							<td><textarea rows="10" cols="39" name="content"></textarea>
+							<td>
+								<textarea rows="10" cols="39" name="content" >
+								<%out.print(bt);%><%out.print(" by " + auth);%>
+									
+								</textarea>
 							</td>
 						</tr>
 						<tr>
@@ -81,5 +123,11 @@
 			</div>
 		</div>
 	</div>
+		<%
+						}
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					%>
 </body>
 </html>
