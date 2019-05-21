@@ -38,6 +38,8 @@
 				<li><a class="selected" href="Book_search.jsp">Book</a></li>
 				<li><a href="User.jsp">User</a></li>
 				<li><a href="issue_history.jsp">Issue history</a></li>
+				<li><a href="pending.jsp">Pending Books</a></li>
+				<li><a href="Veiw_all_reservation.jsp">Reservations</a></li>
 				<li><a href="Emailing.jsp">Email</a></li>
 			</ul>
 		</div>
@@ -81,7 +83,7 @@
 						
 					}
 					
-				 	String sql2 = ("SELECT rdate,SUM(lendingQty)AS p FROM lending WHERE DATE(rdate) = CURDATE()");
+				 	String sql2 = ("SELECT rdate,SUM(lendingQty)AS p FROM lending WHERE DATE(issueDate) = CURDATE()");
 				 	
 					Connection con2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/ard_lms", "root", "");
 					PreparedStatement st2 = con2.prepareStatement(sql2);

@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.DriverManager"%>
 
 <%
-	//String btitle = request.getParameter("bTitle");
+	String btitle = request.getParameter("username");
 	String driverName = "com.mysql.jdbc.Driver";
 
 	try {
@@ -18,15 +18,15 @@
 	Connection con = null;
 	Statement st = null;
 	ResultSet rs = null;
-%>
+%>    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="icon" type="image/png" href="pix/favicon.png">
 <link rel="stylesheet" type="text/css" href="Styles/admin.css">
 <link rel="stylesheet" type="text/css" href="Styles/user.css">
-<title>View Books | ARD Library</title>
+<link rel="icon" type="image/png" href="pix/favicon.png">
+<title>Pending Books | ARD Library</title>
 </head>
 <body>
 	<div class="header">
@@ -42,11 +42,11 @@
 	<div id="container">
 		<div class="sidebar">
 			<ul id="nav">
-				<li><a class="selected" href="admin_index.jsp">Dashboard</a></li>
+				<li><a href="admin_index.jsp">Dashboard</a></li>
 				<li><a href="Book_search.jsp">Book</a></li>
 				<li><a href="User.jsp">User</a></li>
 				<li><a href="issue_history.jsp">Issue history</a></li>
-				<li><a href="pending.jsp">Pending Books</a></li>
+				<li><a class="selected" href="pending.jsp">Pending Books</a></li>
 				<li><a href="Veiw_all_reservation.jsp">Reservations</a></li>
 				<li><a href="Emailing.jsp">Email</a></li>
 			</ul>
@@ -59,12 +59,10 @@
 					<tr>
 						<td>
 							<h1>
-								View all Books
+								Pending Books
+
 								<h1>
 						</td>
-						<td><a class="main_button" href="Book_view.jsp">View All
-								Books</a> <a class="main_button" href="Book_update.jsp">Edit
-								Books</a> <a class="main_button" href="Book_add.jsp">Add Books</a></td>
 					</tr>
 				</table>
 			</div>
@@ -75,46 +73,40 @@
 					</tr>
 
 					<tr bgcolor="lightgray">
-						<td><b>Book ID</b></td>
-						<td><b>Book Title</b></td>
-						<td><b>ISBN</b></td>
-						<td><b>Author</b></td>
-						<td><b>Category</b></td>
-						<td><b>Publisher</b></td>
-						<td><b>Edition</b></td>
-						<td><b>Language</b></td>
+						<td><b>issue ID</b></td>
+						<td><b>nic</b></td>
+						<td><b>book titele</b></td>
+						<td><b>user name</b></td>						
 						<td><b>Copies</b></td>
-						<td><b>addedDate</b></td>
-						<td><b></b></td>
-						<td><b></b></td>
-						<td><b></b></td>
+						<td><b>lendingQty</b></td>						
+						<td><b>status</b></td>
+					    <td><b>return date</b></td>
+						<td><b>Status</b></td>
+						
 
 					</tr>
 					<%
 						try {
 							con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ard_lms", "root", "");
 							st = con.createStatement();
-							String sql = ("SELECT * FROM books ");
+							String sql = ("SELECT * FROM lending where rdate < CURDATE()");
 							rs = st.executeQuery(sql);
 							while (rs.next()) {
+								String alert = "PENDING";
+								request.setAttribute("alert",alert);
 								//String bt = rs.getString("bTitle");
 								//Sesh.setbTitle(bt);
 					%>
 					<tr>
-						<td><%=rs.getString("bid")%></td>
-						<td><%=rs.getString("bTitle")%></td>
-						<td><%=rs.getString("isbn")%></td>
-						<td><%=rs.getString("author")%></td>
-						<td><%=rs.getString("category")%></td>
-						<td><%=rs.getString("publisher")%></td>
-						<td><%=rs.getString("edition")%></td>
-						<td><%=rs.getString("language")%></td>
-						<td><%=rs.getInt("copies")%></td>
-						<td><%=rs.getString("addedDate")%></td>
-						<% int id = Integer.parseInt(rs.getString("bid")); %>
-						<td><a class="sub_button" href=<%="Book_update.jsp?BookID="+id+""%>>Update</a></td>
-						<td><a class="sub_button" href=<%="Book_delete.jsp?BookID="+id+""%>>Delete</a></td>
-						<td><a class="sub_button" href=<%="issuBookjsp.jsp?BookID="+id+""%>>Issue</a></td>
+						<td><%=rs.getString("lnedID")%></td>
+						<td><%=rs.getString("Nic")%></td>
+						<td><%=rs.getString("bookTitele")%></td>
+						<td><%=rs.getString("userName")%></td>
+						<td><%=rs.getString("copies")%></td>
+						<td><%=rs.getString("lendingQty")%></td>
+						<td><%=rs.getString("status")%></td>
+						<td><%=rs.getString("rdate")%></td>
+						<td><%= request.getAttribute("alert")%></td>
 					</tr>
 					<%
 						}

@@ -5,6 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Books | ARD Library</title>
+<link rel="icon" type="image/png" href="pix/favicon.png">
 <link rel="stylesheet" type="text/css" href="Styles/admin.css">
 <link rel="stylesheet" type="text/css" href="Styles/user.css">
 <meta name="viewport"
@@ -20,9 +21,12 @@
 		<div class="sidebar">
 			<ul id="nav">
 				<li><a href="admin_index.jsp">Dashboard</a></li>
-				<li><a class="selected" href="Book_search.jsp">Book</a></li>
+				<li><a href="Book_search.jsp">Book</a></li>
 				<li><a href="User.jsp">User</a></li>
 				<li><a href="Issue.jsp">Issue history</a></li>
+				<li><a href="pending.jsp">Pending Books</a></li>
+				<li><a class="selected" href="Veiw_all_reservation.jsp">Reservations</a></li>
+				<li><a href="Emailing.jsp">Email</a></li>
 			</ul>
 		</div>
 		<div class="content">
@@ -35,7 +39,7 @@
 						</td>
 						<td>
 							<a class="main_button" href="Veiw_all_reservation.jsp">View All Book Reservations</a>
-							<a class="main_button" href="Book_update.jsp">Edit Book Reservations</a>
+							<a class="main_button" href="Book_reservation_update.jsp">Edit Book Reservations</a>
 							<a class="main_button" href="Book_Reservation.jsp">Add Book Reservations</a>
 						</td>
 					</tr>

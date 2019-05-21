@@ -66,7 +66,7 @@ public class AddStudent extends HttpServlet {
 			java.sql.PreparedStatement st = con.prepareStatement(sql);
 			st.executeUpdate(sql);
 			System.out.println("Inserted Successfully!");
-			request.getRequestDispatcher("admin_index.jsp").forward(request, response);
+			request.getRequestDispatcher("UpdateStudent.jsp").forward(request, response);
 			;
 		} catch (Exception ex) {
 			ex.printStackTrace();

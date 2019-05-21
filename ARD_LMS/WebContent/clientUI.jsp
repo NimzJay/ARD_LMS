@@ -1,5 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@page import="java.sql.*"%>
+<%@page import="javax.servlet.*"%>
+<%@page import="java.io.IOException"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="util.DBConnection" %>
+
+<%
+	//String btitle = request.getParameter("bTitle");
+	String driverName = "com.mysql.jdbc.Driver";
+
+	try {
+		Class.forName(driverName);
+	} catch (ClassNotFoundException e) {
+		e.printStackTrace();
+	}
+
+	Connection con = null;
+	Statement st = null;
+	ResultSet rs = null;
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,8 +63,8 @@
 		}
 	</script>
 	<div class="header">
+		<a href="index.jsp" class="right"> LOGOUT </a>
 		<a href="c_MyProfile.jsp" class="right"> MY PROFILE </a> 
-		<a href="c_News.jsp" class="right"> NEWS </a> 
 		<a href="c_Catalog.jsp" class="right"> CATALOG </a> 
 		<a href="c_AboutUs.jsp" class="right"> ABOUT US </a> 
 		<a href="clientUI.jsp" class="right"> HOME </a> 
@@ -49,50 +72,70 @@
 	<br>
 	<br>
 	<br>
-	
-	<div class="container">
-		<p id="heading">OUR SERVICES</p><br>
-		<table class="container" align="center">
-			<tr>
-				<th>Ask a Librarian</th>
-				<th>Meeting Rooms</th>
-				<th>Study Rooms</th>
-			</tr>
-			<tr>
-				<td>Feel free to ask our librarians<br>
-					about any book located at our <br>
-					library storage.
-				</td>
-				<td>Our library provides well-<br>
-					equipped meeting rooms <br>
-					ranging in size from 12 to 300.
-				</td>
-				<td>Our study rooms located in <br>
-					library spaces can be reserved <br>
-					up to two weeks in advance.
-				</td>
-			</tr>
-			<tr>
-				<th>Research</th>
-				<th>Exhibitions</th>
-				<th>Computer classes</th>
-			</tr>
-			<tr>
-				<td>ARD library offers <br>
-					various set of resources for <br>
-					researchers and scholars.
-				</td>
-				<td>Feel free to visit any of our <br>
-					regular book exhibitions <br>
-					featuring popular authors.
-				</td>
-				<td>Gain access to the immense <br>
-					eBook database using our <br>
-					computer classes.
-				</td>
-			</tr>
-		</table>
+
+	<div class="container">		
+		<p id="heading">NEW ARRIVALS</p>
+		<br>
+		<div class="forms">
+			<table width="100%" class="tab">
+				<tr>
+				</tr>
+
+				<tr bgcolor="lightgray">
+
+					<td><b>Book Title</b></td>
+					<td><b>ISBN</b></td>
+					<td><b>Author</b></td>
+					<td><b>Category</b></td>
+					<td><b>Publisher</b></td>
+					<td><b>Edition</b></td>
+					<td><b>Language</b></td>
+					<td><b>Copies</b></td>
+					<td><b>addedDate</b></td>
+					<td><b>Availability</b></td>
+				</tr>
+				<%
+					try {
+						con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ard_lms", "root", "");
+						st = con.createStatement();
+						String sql = ("SELECT * FROM books where addedDate > DATE_SUB(NOW(), INTERVAL 1 WEEK) ORDER BY bTitle DESC");
+						rs = st.executeQuery(sql);
+						while (rs.next()) {
+							String alert;
+							int cop = rs.getInt("copies");
+							System.out.println(cop);
+							if (cop == 0){
+								alert = "Not Available";
+							}
+							else{
+								alert = "Available";
+							}
+							request.setAttribute("alert",alert);
+							//String bt = rs.getString("bTitle");
+							//Sesh.setbTitle(bt);
+				%>
+				<tr>
+					<td><%=rs.getString("bTitle")%></td>
+					<td><%=rs.getString("isbn")%></td>
+					<td><%=rs.getString("author")%></td>
+					<td><%=rs.getString("category")%></td>
+					<td><%=rs.getString("publisher")%></td>
+					<td><%=rs.getString("edition")%></td>
+					<td><%=rs.getString("language")%></td>
+					<td><%=rs.getInt("copies")%></td>
+					<td><%=rs.getString("addedDate")%></td>
+					<td><%= request.getAttribute("alert")%></td>
+				</tr>
+				<%
+					}
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				%>
+			</table>
+		</div>
 	</div>
+	<br><br><br><br><br><br><br><br><br><br><br><br>
 	<footer>
 		<a href="clientUI.jsp" class="footer"> HOME </a> 
 		<a href="c_AboutUs.jsp" class="footer"> ABOUT US </a> 

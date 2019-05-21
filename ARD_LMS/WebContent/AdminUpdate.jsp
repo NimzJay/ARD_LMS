@@ -9,7 +9,7 @@
 <%@page import="java.sql.DriverManager"%>
 
 <%
-	String bid = request.getParameter("bTitle");
+	String nic = request.getParameter("nic");
 	String driverName = "com.mysql.jdbc.Driver";
 
 	//Connection con = null;
@@ -23,7 +23,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Update Books | ARD Library</title>
+<title>Update Admin | ARD Library</title>
 <link rel="icon" type="image/png" href="pix/favicon.png">
 <link rel="stylesheet" type="text/css" href="Styles/admin.css">
 <link rel="stylesheet" type="text/css" href="Styles/user.css">
@@ -45,8 +45,8 @@
 		<div class="sidebar">
 			<ul id="nav">
 				<li><a href="admin_index.jsp">Dashboard</a></li>
-				<li><a class="selected" href="Book_search.jsp">Book</a></li>
-				<li><a href="User.jsp">User</a></li>
+				<li><a href="Book_search.jsp">Book</a></li>
+				<li><a class="selected" href="User.jsp">User</a></li>
 				<li><a href="issue_history.jsp">Issue history</a></li>
 				<li><a href="pending.jsp">Pending Books</a></li>
 				<li><a href="Veiw_all_reservation.jsp">Reservations</a></li>
@@ -60,84 +60,94 @@
 					<tr>
 						<td>
 							<h1>
-								Update Books
+								Update Admin
 							<h1>
 						</td>
-						<td><a class="main_button" href="Book_view.jsp">View All Books</a> 
-							<a class="main_button" href="Book_update.jsp">Edit Books</a> 
-							<a class="main_button" href="Book_add.jsp">Add Books</a></td>
+						<td><a class="main_button" href="AdminView.jsp">View All Users</a> 
+							<a class="main_button" href="AdminDelete.jsp">Delete Admin</a> 
+							<a class="main_button" href="AddAdmin.jsp">Add Admin</a></td>
 					</tr>
 				</table>
 			</div>
-			
+			<div class="forms">
+				<form class="AdminAdd" method="POST" name="admin">
+					<table class="tab" style="border-color: black; color: black"
+						align="center">
+						<tr>
+							<td>Admin NIC:</td>
+							<td><input id="Text1" type="text" name="nic" required /></td>
+							<td><input type="submit" value="Search" name="btnAdd"></td>
+							<%
+								String nicc = request.getParameter("nic");
+							%>
+						</tr>
+					</table>
+				</form>
+			</div>
 			<div class="forms">
 				<%
-					String b=request.getParameter("BookID");
-					System.out.println("BookID: " + b);
+					System.out.println("Admin: " + nicc);
 					try {
-						String sql = ("SELECT * FROM books WHERE bid = '"+b+"'");
+						String sql = ("SELECT * FROM user WHERE nic = '"+nicc+"'");
 						Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ard_lms", "root", "");
 						PreparedStatement st = con.prepareStatement(sql);
 						ResultSet rs = st.executeQuery(sql);
 						while (rs.next()) {
 				%>
-				<form class="bookAdd" action="BookUpdate" method="POST"
+				<form class="AddAdmin" action="AdminUpdate" method="POST"
 					name="admin">
 					<table class="tab" style="border-color: black; color: black"
 						align="center">
 						<tr>
-							<td>Book Title:</td>
-							<td><input id="Text1" type="text" name="btitle"
-								value="<%=rs.getString("bTitle")%>" required /></td>
+							<td>Username:</td>
+							<td><input id="Text1" type="text" name="username"
+								value="<%=rs.getString("Username")%>" required /></td>
 						</tr>
 						<tr>
-							<td>ISBN:</td>
-							<td><input id="Text1" type="text" name="isbn"
-								value="<%=rs.getString("isbn")%>" required /></td>
+							<td>Password:</td>
+							<td><input id="Text1" type="text" name="password"
+								value="<%=rs.getString("Password")%>" required /></td>
 						</tr>
 						<tr>
-							<td>Author:</td>
-							<td><input id="Text1" type="text" name="author"
-								value="<%=rs.getString("author")%>" required /></td>
+							<td>First Name:</td>
+							<td><input id="Text1" type="text" name="fname"
+								value="<%=rs.getString("fname")%>" required /></td>
 						</tr>
 						<tr>
-							<td>category:</td>
-							<td><input id="pass" type="text" name="category"
-								value="<%=rs.getString("category")%>" required /></td>
+							<td>Last Name:</td>
+							<td><input id="Text1" type="text" name="lname"
+								value="<%=rs.getString("lname")%>" required /></td>
 						</tr>
 						<tr>
-							<td>Publisher:</td>
-							<td><input id="pass" type="text" name="publisher"
-								value="<%=rs.getString("publisher")%>" required /></td>
+							<td>Date of Birth:</td>
+							<td><input id="Text1" type="text" name="dob"
+								value="<%=rs.getString("dob")%>" required /></td>
 						</tr>
 						<tr>
-							<td>Edition:</td>
-							<td><input type="text" name="edition" 
-							value="<%=rs.getString("edition")%>" required /></td>
+							<td>NIC:</td>
+							<td><input type="text" name="nic" 
+							value="<%=rs.getString("nic")%>" required /></td>
 
 						</tr>
 						<tr>
-							<td>Language:</td>
-							<td><input type="text" name="lang" 
-							value="<%=rs.getString("language")%>" required></td>
+							<td>Phone:</td>
+							<td><input type="text" name="phone" 
+							value="<%=rs.getString("phone")%>" required></td>
 						</tr>
 						<tr>
-							<td>Copies:</td>
-							<td><input type="text" name="copies" 
-							value="<%=rs.getInt("copies")%>" required></td>
+							<td>e-mail:</td>
+							<td><input type="text" name="email" 
+							value="<%=rs.getString("email")%>" required></td>
 						</tr>
 						<tr>
-							<td>Added Date:</td>
-							<td><input id="Text1" type="date" name="addedon"
-								value="<%=rs.getString("addedDate")%>" required /></td>
-						</tr>
-						<tr></tr>
-
+							<td>Address:</td>
+							<td><input id="Text1" type="text" name="address"
+								value="<%=rs.getString("address")%>" required /></td>
+						</tr> 
 						<tr>
-							<td></td>
-							<td><input type="submit" value="Update" name="insert" /></td>
-
-						</tr>
+					<td><input type="submit" value="Update Admin"class="button">
+					</td>
+				</tr>
 
 					</table>
 					<%

@@ -38,6 +38,8 @@
 				<li><a class="selected" href="Book_search.jsp">Book</a></li>
 				<li><a href="User.jsp">User</a></li>
 				<li><a href="issue_history.jsp">Issue history</a></li>
+				<li><a href="pending.jsp">Pending Books</a></li>
+				<li><a href="Veiw_all_reservation.jsp">Reservations</a></li>
 				<li><a href="Emailing.jsp">Email</a></li>
 			</ul>
 		</div>
@@ -194,6 +196,12 @@
                 $("#datepicker").datepicker({ dateFormat: "yy-mm-dd" });
             });
         </script>
+           <script>
+            $(function () {
+                $("#datepicker2").datepicker({ dateFormat: "yy-mm-dd" });
+            });
+        </script>
+				
 				
           
 				<form class="bookAdd" action="issu_book" onsubmit="return checkqty(this);" method="POST"
@@ -230,6 +238,11 @@
 							<td><input id="datepicker" type="date" name="date"
 								required /></td>
 						</tr>
+						<tr>
+							<td>issue date:</td>
+							<td><input id="datepicker2" type="date" name="date2"
+								required /></td>
+						</tr>
 							<tr>
 							<td>Currently Borrowed QuantityS:</td>
 							<td><input id="Text1" type="text" name="userbrrqty"
@@ -239,7 +252,7 @@
 						<tr>
 							<td></td>
 							<td><input type="submit" value="issue" name="issu" /></td>
-                             
+                            <td><a href=""></a></td> 
 						</tr>                    			 				  				   				    
 					</table>
 					

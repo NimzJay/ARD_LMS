@@ -29,6 +29,8 @@
 				<li><a href="Book_search.jsp">Book</a></li>
 				<li><a class="selected" href="User.jsp">User</a></li>
 				<li><a href="issue_history.jsp">Issue history</a></li>
+				<li><a href="pending.jsp">Pending Books</a></li>
+				<li><a href="Veiw_all_reservation.jsp">Reservations</a></li>
 				<li><a href="Emailing.jsp">Email</a></li>
 			</ul>
 		</div>
@@ -42,8 +44,10 @@
 								Add Admin
 								<h1>
 						</td>
-						<td><a class="button" href="AdminView.jsp">Edit Admin</a> <a
-							class="button" href="AdminView.jsp">Delete Admin</a></td>
+						<td><a class="button" href="AdminUpdate.jsp">Edit Admin</a> 
+						<a class="button" href="AdminDelete.jsp">Delete Admin</a>
+						<a class="button" href="AdminView.jsp">View All users</a>
+						</td>
 					</tr>
 				</table>
 			</div>
